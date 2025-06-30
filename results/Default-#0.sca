@@ -1,0 +1,631 @@
+version 3
+run Default-0-20250630-13:14:21-17224
+attr configname Default
+attr datetime 20250630-13:14:21
+attr datetimef 20250630-131421
+attr experiment Default
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network Circle
+attr processid 17224
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config image-path ../../../veins-veins-5.3.1/images
+config cmdenv-express-mode true
+config cmdenv-autoflush true
+config cmdenv-status-frequency 1s
+config **.cmdenv-log-level info
+config image-path ../../images
+config network Circle
+config debug-on-errors true
+config print-undisposed true
+config sim-time-limit 62s
+config **.scalar-recording true
+config **.vector-recording true
+config *.playgroundSizeX 2500m
+config *.playgroundSizeY 2500m
+config *.playgroundSizeZ 50m
+config *.annotations.draw true
+config *.manager.updateInterval 1s
+config *.manager.host "\"localhost\""
+config *.manager.port 9999
+config *.manager.autoShutdown true
+config *.manager.launchConfig "xmldoc(\"sumoveins.launchd.xml\")"
+config *.manager.trafficLightModuleType "\"org.car2x.veins.nodes.TrafficLight\""
+config *.tls[*].mobility.x 0
+config *.tls[*].mobility.y 0
+config *.tls[*].mobility.z 3
+config *.tls[*].applType "\"org.car2x.veins.modules.application.traci.TraCIDemoTrafficLightApp\""
+config *.tls[*].logicType "\"org.car2x.veins.modules.world.traci.trafficLight.logics.TraCITrafficLightSimpleLogic\""
+config *.rsu[0].mobility.x 2000
+config *.rsu[0].mobility.y 2000
+config *.rsu[0].mobility.z 3
+config *.rsu[*].applType "\"MyRSUApp\""
+config *.rsu[*].appl.headerLength "80 bit"
+config *.rsu[*].appl.sendBeacons false
+config *.rsu[*].appl.dataOnSch false
+config *.rsu[*].appl.beaconInterval 1s
+config *.rsu[*].appl.beaconUserPriority 7
+config *.rsu[*].appl.dataUserPriority 5
+config *.rsu[*].nic.phy80211p.antennaOffsetZ "0 m"
+config *.connectionManager.sendDirect true
+config *.connectionManager.maxInterfDist 2600m
+config *.connectionManager.drawMaxIntfDist false
+config *.**.nic.mac1609_4.useServiceChannel false
+config *.**.nic.mac1609_4.txPower 20mW
+config *.**.nic.mac1609_4.bitrate 6Mbps
+config *.**.nic.phy80211p.minPowerLevel -110dBm
+config *.**.nic.phy80211p.useNoiseFloor true
+config *.**.nic.phy80211p.noiseFloor -98dBm
+config *.**.nic.phy80211p.decider "xmldoc(\"config.xml\")"
+config *.**.nic.phy80211p.analogueModels "xmldoc(\"config.xml\")"
+config *.**.nic.phy80211p.usePropagationDelay true
+config *.**.nic.phy80211p.antenna "xmldoc(\"antenna.xml\", \"/root/Antenna[@id='monopole']\")"
+config *.car[*].nic.phy80211p.antennaOffsetY "0 m"
+config *.car[*].nic.phy80211p.antennaOffsetZ "1.895 m"
+config *.car[*].applType "\"MyCarApp\""
+config *.car[*].appl.headerLength "80 bit"
+config *.car[*].appl.sendBeacons false
+config *.car[*].appl.dataOnSch false
+config *.car[*].appl.beaconInterval 1s
+config *.car[*].veinsmobility.x 0
+config *.car[*].veinsmobility.y 0
+config *.car[*].veinsmobility.z 0
+config *.car[*].veinsmobility.setHostSpeed false
+config *.car[*0].veinsmobility.accidentCount 0
+config *.car[*0].veinsmobility.accidentStart 73s
+config *.car[*0].veinsmobility.accidentDuration 50s
+
+par Circle.node[0].appl typename "\"MyCarApp\""
+par Circle.node[0].appl vnfType "\"OBU\""
+par Circle.node[0].appl headerLength 80
+par Circle.node[0].nic.phy80211p typename "\"org.car2x.veins.modules.phy.PhyLayer80211p\""
+par Circle.node[0].nic.phy80211p recordStats false
+par Circle.node[0].nic.phy80211p usePropagationDelay true
+par Circle.node[0].nic.phy80211p noiseFloor -98dBm
+attr unit dBm
+par Circle.node[0].nic.phy80211p useNoiseFloor true
+par Circle.node[0].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at C:/Users/Acer/Desktop/omnetpp-6.1/samples/sumoveins/\\antenna.xml:35"
+par Circle.node[0].nic.phy80211p antennaOffsetX 0m
+attr unit m
+par Circle.node[0].nic.phy80211p antennaOffsetY 0m
+attr unit m
+par Circle.node[0].nic.phy80211p antennaOffsetZ 1.895m
+attr unit m
+par Circle.node[0].nic.phy80211p antennaOffsetYaw 0rad
+attr unit rad
+par Circle.node[0].nic.phy80211p analogueModels "<root>...</root> at C:/Users/Acer/Desktop/omnetpp-6.1/samples/sumoveins/\\config.xml:34"
+par Circle.node[0].nic.phy80211p decider "<root>...</root> at C:/Users/Acer/Desktop/omnetpp-6.1/samples/sumoveins/\\config.xml:34"
+par Circle.node[0].nic.phy80211p minPowerLevel -110dBm
+attr unit dBm
+par Circle.node[0].nic.phy80211p timeRXToTX 0s
+attr unit s
+par Circle.node[0].nic.phy80211p timeRXToSleep 0s
+attr unit s
+par Circle.node[0].nic.phy80211p timeTXToRX 0s
+attr unit s
+par Circle.node[0].nic.phy80211p timeTXToSleep 0s
+attr unit s
+par Circle.node[0].nic.phy80211p timeSleepToRX 0s
+attr unit s
+par Circle.node[0].nic.phy80211p timeSleepToTX 0s
+attr unit s
+par Circle.node[0].nic.phy80211p initialRadioState 0
+par Circle.node[0].nic.phy80211p radioMinAtt 1
+par Circle.node[0].nic.phy80211p radioMaxAtt 0
+par Circle.node[0].nic.phy80211p nbRadioChannels 1
+par Circle.node[0].nic.phy80211p initialRadioChannel 0
+par Circle.node[0].nic.phy80211p ccaThreshold -65dBm
+attr unit dBm
+par Circle.node[0].nic.phy80211p collectCollisionStatistics false
+par Circle.node[0].nic.phy80211p allowTxDuringRx false
+scalar Circle.node[0].nic.phy80211p busyTime 0
+par Circle.node[0].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
+par Circle.node[0].nic.mac1609_4 notAffectedByHostState false
+par Circle.node[0].nic.mac1609_4 headerLength 0bit
+attr unit bit
+par Circle.node[0].nic.mac1609_4 address "\"auto\""
+par Circle.node[0].nic.mac1609_4 useServiceChannel false
+par Circle.node[0].nic.mac1609_4 serviceChannel 1
+par Circle.node[0].nic.mac1609_4 bitrate 6000000bps
+attr unit bps
+par Circle.node[0].nic.mac1609_4 syncOffset 0.0003s
+attr unit s
+par Circle.node[0].nic.mac1609_4 txPower 20mW
+attr unit mW
+par Circle.node[0].nic.mac1609_4 queueSize 0
+par Circle.node[0].nic.mac1609_4 dot11RTSThreshold 12000bit
+attr unit bit
+par Circle.node[0].nic.mac1609_4 dot11ShortRetryLimit 7
+par Circle.node[0].nic.mac1609_4 dot11LongRetryLimit 4
+par Circle.node[0].nic.mac1609_4 ackLength 112bit
+attr unit bit
+par Circle.node[0].nic.mac1609_4 useAcks false
+par Circle.node[0].nic.mac1609_4 frameErrorRate 0
+par Circle.node[0].nic.mac1609_4 ackErrorRate 0
+scalar Circle.node[0].nic.mac1609_4 ReceivedUnicastPackets 0
+scalar Circle.node[0].nic.mac1609_4 ReceivedBroadcasts 0
+scalar Circle.node[0].nic.mac1609_4 SentPackets 0
+scalar Circle.node[0].nic.mac1609_4 SentAcknowledgements 0
+scalar Circle.node[0].nic.mac1609_4 RetriesExceeded 0
+scalar Circle.node[0].nic.mac1609_4 SNIRLostPackets 0
+scalar Circle.node[0].nic.mac1609_4 RXTXLostPackets 0
+scalar Circle.node[0].nic.mac1609_4 TotalLostPackets 0
+scalar Circle.node[0].nic.mac1609_4 DroppedPacketsInMac 0
+scalar Circle.node[0].nic.mac1609_4 TooLittleTime 0
+scalar Circle.node[0].nic.mac1609_4 TimesIntoBackoff 0
+scalar Circle.node[0].nic.mac1609_4 SlotsBackoff 0
+scalar Circle.node[0].nic.mac1609_4 NumInternalContention 0
+scalar Circle.node[0].nic.mac1609_4 totalBusyTime 0
+scalar Circle.node[0].nic.mac1609_4 retriesExceeded:count 0
+attr recordingmode count
+attr source org_car2x_veins_modules_mac_sigRetriesExceeded
+scalar Circle.node[0].nic.mac1609_4 sentAcks:count 0
+attr recordingmode count
+attr source org_car2x_veins_modules_mac_sigSentAck
+scalar Circle.node[0].nic.mac1609_4 sentPackets:count 0
+attr recordingmode count
+attr source org_car2x_veins_modules_mac_sigSentPacket
+scalar Circle.node[0].nic.mac1609_4 collisions:count 0
+attr recordingmode count
+attr source org_car2x_veins_modules_mac_sigCollision
+scalar Circle.node[0].nic.mac1609_4 channelBusy:timeavg 0
+attr recordingmode timeavg
+attr source org_car2x_veins_modules_mac_sigChannelBusy
+par Circle.node[0].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
+par Circle.node[0].nic connectionManagerName "\"connectionManager\""
+par Circle.node[0].veinsmobility typename "\"org.car2x.veins.modules.mobility.traci.TraCIMobility\""
+par Circle.node[0].veinsmobility notAffectedByHostState true
+par Circle.node[0].veinsmobility x 0
+par Circle.node[0].veinsmobility y 0
+par Circle.node[0].veinsmobility z 0
+par Circle.node[0].veinsmobility xOrientation 1
+par Circle.node[0].veinsmobility yOrientation 0
+par Circle.node[0].veinsmobility zOrientation 0
+par Circle.node[0].veinsmobility hostPositionOffset 0m
+attr unit m
+par Circle.node[0].veinsmobility setHostSpeed false
+par Circle.node[0].veinsmobility accidentCount 0
+par Circle.node[0].veinsmobility accidentStart 49.3768s
+attr unit s
+par Circle.node[0].veinsmobility accidentDuration "uniform(30s, 60s)"
+attr unit s
+par Circle.node[0].veinsmobility accidentInterval "uniform(30s, 60s)"
+attr unit s
+scalar Circle.node[0].veinsmobility startTime 1
+scalar Circle.node[0].veinsmobility totalTime 30
+scalar Circle.node[0].veinsmobility stopTime 32
+scalar Circle.node[0].veinsmobility minSpeed 1.4392818092834
+scalar Circle.node[0].veinsmobility maxSpeed 11.639335876092
+scalar Circle.node[0].veinsmobility totalDistance 194.46355805769
+scalar Circle.node[0].veinsmobility totalCO2Emission 103.80571962547
+par Circle.node[0] typename "\"org.car2x.veins.nodes.Car\""
+par Circle.node[0] applType "\"MyCarApp\""
+par Circle.node[0] nicType "\"Nic80211p\""
+par Circle.node[0] veinsmobilityType "\"org.car2x.veins.modules.mobility.traci.TraCIMobility\""
+par Circle.obstacles typename "\"org.car2x.veins.modules.obstacle.ObstacleControl\""
+par Circle.obstacles obstacles "<obstacles/> at content:1"
+par Circle.obstacles gridCellSize 250
+par Circle.annotations typename "\"org.car2x.veins.modules.world.annotations.AnnotationManager\""
+par Circle.annotations draw true
+par Circle.annotations annotations "<annotations/> at content:1"
+par Circle.connectionManager typename "\"org.car2x.veins.base.connectionManager.ConnectionManager\""
+par Circle.connectionManager sendDirect true
+par Circle.connectionManager maxInterfDist 2600m
+attr unit m
+par Circle.connectionManager drawMaxIntfDist false
+par Circle.world typename "\"org.car2x.veins.base.modules.BaseWorldUtility\""
+par Circle.world playgroundSizeX 2500m
+attr unit m
+par Circle.world playgroundSizeY 2500m
+attr unit m
+par Circle.world playgroundSizeZ 50m
+attr unit m
+par Circle.world useTorus false
+par Circle.world use2D false
+par Circle.manager typename "\"org.car2x.veins.modules.mobility.traci.TraCIScenarioManagerLaunchd\""
+par Circle.manager connectAt 0s
+attr unit s
+par Circle.manager firstStepAt -1s
+attr unit s
+par Circle.manager updateInterval 1s
+attr unit s
+par Circle.manager moduleType "\"org.car2x.veins.nodes.Car\""
+par Circle.manager moduleName "\"node\""
+par Circle.manager moduleDisplayString "\"*='i=veins/node/car;is=vs'\""
+par Circle.manager trafficLightModuleType "\"org.car2x.veins.nodes.TrafficLight\""
+par Circle.manager trafficLightModuleName "\"tls\""
+par Circle.manager trafficLightFilter "\"\""
+par Circle.manager trafficLightModuleDisplayString "\"i=veins/node/trafficlight;is=vs\""
+par Circle.manager host "\"localhost\""
+par Circle.manager port 9999
+par Circle.manager seed -1
+par Circle.manager autoShutdown true
+par Circle.manager margin 25
+par Circle.manager roiRoads "\"\""
+par Circle.manager roiRects "\"\""
+par Circle.manager penetrationRate 1
+par Circle.manager ignoreGuiCommands false
+par Circle.manager order -1
+par Circle.manager ignoreUnknownSubscriptionResults false
+par Circle.manager launchConfig "<launch>...</launch> at C:/Users/Acer/Desktop/omnetpp-6.1/samples/sumoveins/\\sumoveins.launchd.xml:35"
+scalar Circle.manager roiArea 0
+par Circle.roadsCanvasVisualizer typename "\"org.car2x.veins.visualizer.roads.RoadsCanvasVisualizer\""
+par Circle.roadsCanvasVisualizer enabled true
+par Circle.roadsCanvasVisualizer lineZIndex -1
+par Circle.roadsCanvasVisualizer lineColor "\"firebrick4\""
+par Circle.roadsCanvasVisualizer lineWidth 1
+par Circle.roadsCanvasVisualizer lineWidthZoom false
+par Circle.rsu[0].appl typename "\"MyRSUApp\""
+par Circle.rsu[0].appl maxVNFs 3
+par Circle.rsu[0].appl headerLength 80
+par Circle.rsu[0].nic.phy80211p typename "\"org.car2x.veins.modules.phy.PhyLayer80211p\""
+par Circle.rsu[0].nic.phy80211p recordStats false
+par Circle.rsu[0].nic.phy80211p usePropagationDelay true
+par Circle.rsu[0].nic.phy80211p noiseFloor -98dBm
+attr unit dBm
+par Circle.rsu[0].nic.phy80211p useNoiseFloor true
+par Circle.rsu[0].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at C:/Users/Acer/Desktop/omnetpp-6.1/samples/sumoveins/\\antenna.xml:35"
+par Circle.rsu[0].nic.phy80211p antennaOffsetX 0m
+attr unit m
+par Circle.rsu[0].nic.phy80211p antennaOffsetY 0m
+attr unit m
+par Circle.rsu[0].nic.phy80211p antennaOffsetZ 0m
+attr unit m
+par Circle.rsu[0].nic.phy80211p antennaOffsetYaw 0rad
+attr unit rad
+par Circle.rsu[0].nic.phy80211p analogueModels "<root>...</root> at C:/Users/Acer/Desktop/omnetpp-6.1/samples/sumoveins/\\config.xml:34"
+par Circle.rsu[0].nic.phy80211p decider "<root>...</root> at C:/Users/Acer/Desktop/omnetpp-6.1/samples/sumoveins/\\config.xml:34"
+par Circle.rsu[0].nic.phy80211p minPowerLevel -110dBm
+attr unit dBm
+par Circle.rsu[0].nic.phy80211p timeRXToTX 0s
+attr unit s
+par Circle.rsu[0].nic.phy80211p timeRXToSleep 0s
+attr unit s
+par Circle.rsu[0].nic.phy80211p timeTXToRX 0s
+attr unit s
+par Circle.rsu[0].nic.phy80211p timeTXToSleep 0s
+attr unit s
+par Circle.rsu[0].nic.phy80211p timeSleepToRX 0s
+attr unit s
+par Circle.rsu[0].nic.phy80211p timeSleepToTX 0s
+attr unit s
+par Circle.rsu[0].nic.phy80211p initialRadioState 0
+par Circle.rsu[0].nic.phy80211p radioMinAtt 1
+par Circle.rsu[0].nic.phy80211p radioMaxAtt 0
+par Circle.rsu[0].nic.phy80211p nbRadioChannels 1
+par Circle.rsu[0].nic.phy80211p initialRadioChannel 0
+par Circle.rsu[0].nic.phy80211p ccaThreshold -65dBm
+attr unit dBm
+par Circle.rsu[0].nic.phy80211p collectCollisionStatistics false
+par Circle.rsu[0].nic.phy80211p allowTxDuringRx false
+scalar Circle.rsu[0].nic.phy80211p busyTime 0
+par Circle.rsu[0].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
+par Circle.rsu[0].nic.mac1609_4 notAffectedByHostState false
+par Circle.rsu[0].nic.mac1609_4 headerLength 0bit
+attr unit bit
+par Circle.rsu[0].nic.mac1609_4 address "\"auto\""
+par Circle.rsu[0].nic.mac1609_4 useServiceChannel false
+par Circle.rsu[0].nic.mac1609_4 serviceChannel 1
+par Circle.rsu[0].nic.mac1609_4 bitrate 6000000bps
+attr unit bps
+par Circle.rsu[0].nic.mac1609_4 syncOffset 0.0003s
+attr unit s
+par Circle.rsu[0].nic.mac1609_4 txPower 20mW
+attr unit mW
+par Circle.rsu[0].nic.mac1609_4 queueSize 0
+par Circle.rsu[0].nic.mac1609_4 dot11RTSThreshold 12000bit
+attr unit bit
+par Circle.rsu[0].nic.mac1609_4 dot11ShortRetryLimit 7
+par Circle.rsu[0].nic.mac1609_4 dot11LongRetryLimit 4
+par Circle.rsu[0].nic.mac1609_4 ackLength 112bit
+attr unit bit
+par Circle.rsu[0].nic.mac1609_4 useAcks false
+par Circle.rsu[0].nic.mac1609_4 frameErrorRate 0
+par Circle.rsu[0].nic.mac1609_4 ackErrorRate 0
+scalar Circle.rsu[0].nic.mac1609_4 ReceivedUnicastPackets 0
+scalar Circle.rsu[0].nic.mac1609_4 ReceivedBroadcasts 0
+scalar Circle.rsu[0].nic.mac1609_4 SentPackets 0
+scalar Circle.rsu[0].nic.mac1609_4 SentAcknowledgements 0
+scalar Circle.rsu[0].nic.mac1609_4 RetriesExceeded 0
+scalar Circle.rsu[0].nic.mac1609_4 SNIRLostPackets 0
+scalar Circle.rsu[0].nic.mac1609_4 RXTXLostPackets 0
+scalar Circle.rsu[0].nic.mac1609_4 TotalLostPackets 0
+scalar Circle.rsu[0].nic.mac1609_4 DroppedPacketsInMac 0
+scalar Circle.rsu[0].nic.mac1609_4 TooLittleTime 0
+scalar Circle.rsu[0].nic.mac1609_4 TimesIntoBackoff 0
+scalar Circle.rsu[0].nic.mac1609_4 SlotsBackoff 0
+scalar Circle.rsu[0].nic.mac1609_4 NumInternalContention 0
+scalar Circle.rsu[0].nic.mac1609_4 totalBusyTime 0
+scalar Circle.rsu[0].nic.mac1609_4 retriesExceeded:count 0
+attr recordingmode count
+attr source org_car2x_veins_modules_mac_sigRetriesExceeded
+scalar Circle.rsu[0].nic.mac1609_4 sentAcks:count 0
+attr recordingmode count
+attr source org_car2x_veins_modules_mac_sigSentAck
+scalar Circle.rsu[0].nic.mac1609_4 sentPackets:count 0
+attr recordingmode count
+attr source org_car2x_veins_modules_mac_sigSentPacket
+scalar Circle.rsu[0].nic.mac1609_4 collisions:count 0
+attr recordingmode count
+attr source org_car2x_veins_modules_mac_sigCollision
+scalar Circle.rsu[0].nic.mac1609_4 channelBusy:timeavg 0
+attr recordingmode timeavg
+attr source org_car2x_veins_modules_mac_sigChannelBusy
+par Circle.rsu[0].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
+par Circle.rsu[0].nic connectionManagerName "\"connectionManager\""
+par Circle.rsu[0].mobility typename "\"org.car2x.veins.base.modules.BaseMobility\""
+par Circle.rsu[0].mobility notAffectedByHostState true
+par Circle.rsu[0].mobility x 2000
+par Circle.rsu[0].mobility y 2000
+par Circle.rsu[0].mobility z 3
+par Circle.rsu[0].mobility xOrientation 1
+par Circle.rsu[0].mobility yOrientation 0
+par Circle.rsu[0].mobility zOrientation 0
+par Circle.rsu[0] typename "\"org.car2x.veins.nodes.RSU\""
+par Circle.rsu[0] applType "\"MyRSUApp\""
+par Circle.rsu[0] nicType "\"Nic80211p\""
+par Circle.car[0].appl typename "\"MyCarApp\""
+par Circle.car[0].appl vnfType "\"OBU\""
+par Circle.car[0].appl headerLength 80
+par Circle.car[0].nic.phy80211p typename "\"org.car2x.veins.modules.phy.PhyLayer80211p\""
+par Circle.car[0].nic.phy80211p recordStats false
+par Circle.car[0].nic.phy80211p usePropagationDelay true
+par Circle.car[0].nic.phy80211p noiseFloor -98dBm
+attr unit dBm
+par Circle.car[0].nic.phy80211p useNoiseFloor true
+par Circle.car[0].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at C:/Users/Acer/Desktop/omnetpp-6.1/samples/sumoveins/\\antenna.xml:35"
+par Circle.car[0].nic.phy80211p antennaOffsetX 0m
+attr unit m
+par Circle.car[0].nic.phy80211p antennaOffsetY 0m
+attr unit m
+par Circle.car[0].nic.phy80211p antennaOffsetZ 1.895m
+attr unit m
+par Circle.car[0].nic.phy80211p antennaOffsetYaw 0rad
+attr unit rad
+par Circle.car[0].nic.phy80211p analogueModels "<root>...</root> at C:/Users/Acer/Desktop/omnetpp-6.1/samples/sumoveins/\\config.xml:34"
+par Circle.car[0].nic.phy80211p decider "<root>...</root> at C:/Users/Acer/Desktop/omnetpp-6.1/samples/sumoveins/\\config.xml:34"
+par Circle.car[0].nic.phy80211p minPowerLevel -110dBm
+attr unit dBm
+par Circle.car[0].nic.phy80211p timeRXToTX 0s
+attr unit s
+par Circle.car[0].nic.phy80211p timeRXToSleep 0s
+attr unit s
+par Circle.car[0].nic.phy80211p timeTXToRX 0s
+attr unit s
+par Circle.car[0].nic.phy80211p timeTXToSleep 0s
+attr unit s
+par Circle.car[0].nic.phy80211p timeSleepToRX 0s
+attr unit s
+par Circle.car[0].nic.phy80211p timeSleepToTX 0s
+attr unit s
+par Circle.car[0].nic.phy80211p initialRadioState 0
+par Circle.car[0].nic.phy80211p radioMinAtt 1
+par Circle.car[0].nic.phy80211p radioMaxAtt 0
+par Circle.car[0].nic.phy80211p nbRadioChannels 1
+par Circle.car[0].nic.phy80211p initialRadioChannel 0
+par Circle.car[0].nic.phy80211p ccaThreshold -65dBm
+attr unit dBm
+par Circle.car[0].nic.phy80211p collectCollisionStatistics false
+par Circle.car[0].nic.phy80211p allowTxDuringRx false
+scalar Circle.car[0].nic.phy80211p busyTime 0
+par Circle.car[0].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
+par Circle.car[0].nic.mac1609_4 notAffectedByHostState false
+par Circle.car[0].nic.mac1609_4 headerLength 0bit
+attr unit bit
+par Circle.car[0].nic.mac1609_4 address "\"auto\""
+par Circle.car[0].nic.mac1609_4 useServiceChannel false
+par Circle.car[0].nic.mac1609_4 serviceChannel 1
+par Circle.car[0].nic.mac1609_4 bitrate 6000000bps
+attr unit bps
+par Circle.car[0].nic.mac1609_4 syncOffset 0.0003s
+attr unit s
+par Circle.car[0].nic.mac1609_4 txPower 20mW
+attr unit mW
+par Circle.car[0].nic.mac1609_4 queueSize 0
+par Circle.car[0].nic.mac1609_4 dot11RTSThreshold 12000bit
+attr unit bit
+par Circle.car[0].nic.mac1609_4 dot11ShortRetryLimit 7
+par Circle.car[0].nic.mac1609_4 dot11LongRetryLimit 4
+par Circle.car[0].nic.mac1609_4 ackLength 112bit
+attr unit bit
+par Circle.car[0].nic.mac1609_4 useAcks false
+par Circle.car[0].nic.mac1609_4 frameErrorRate 0
+par Circle.car[0].nic.mac1609_4 ackErrorRate 0
+scalar Circle.car[0].nic.mac1609_4 ReceivedUnicastPackets 0
+scalar Circle.car[0].nic.mac1609_4 ReceivedBroadcasts 0
+scalar Circle.car[0].nic.mac1609_4 SentPackets 0
+scalar Circle.car[0].nic.mac1609_4 SentAcknowledgements 0
+scalar Circle.car[0].nic.mac1609_4 RetriesExceeded 0
+scalar Circle.car[0].nic.mac1609_4 SNIRLostPackets 0
+scalar Circle.car[0].nic.mac1609_4 RXTXLostPackets 0
+scalar Circle.car[0].nic.mac1609_4 TotalLostPackets 0
+scalar Circle.car[0].nic.mac1609_4 DroppedPacketsInMac 0
+scalar Circle.car[0].nic.mac1609_4 TooLittleTime 0
+scalar Circle.car[0].nic.mac1609_4 TimesIntoBackoff 0
+scalar Circle.car[0].nic.mac1609_4 SlotsBackoff 0
+scalar Circle.car[0].nic.mac1609_4 NumInternalContention 0
+scalar Circle.car[0].nic.mac1609_4 totalBusyTime 0
+scalar Circle.car[0].nic.mac1609_4 retriesExceeded:count 0
+attr recordingmode count
+attr source org_car2x_veins_modules_mac_sigRetriesExceeded
+scalar Circle.car[0].nic.mac1609_4 sentAcks:count 0
+attr recordingmode count
+attr source org_car2x_veins_modules_mac_sigSentAck
+scalar Circle.car[0].nic.mac1609_4 sentPackets:count 0
+attr recordingmode count
+attr source org_car2x_veins_modules_mac_sigSentPacket
+scalar Circle.car[0].nic.mac1609_4 collisions:count 0
+attr recordingmode count
+attr source org_car2x_veins_modules_mac_sigCollision
+scalar Circle.car[0].nic.mac1609_4 channelBusy:timeavg 0
+attr recordingmode timeavg
+attr source org_car2x_veins_modules_mac_sigChannelBusy
+par Circle.car[0].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
+par Circle.car[0].nic connectionManagerName "\"connectionManager\""
+par Circle.car[0].veinsmobility typename "\"org.car2x.veins.modules.mobility.traci.TraCIMobility\""
+par Circle.car[0].veinsmobility notAffectedByHostState true
+par Circle.car[0].veinsmobility x 0
+par Circle.car[0].veinsmobility y 0
+par Circle.car[0].veinsmobility z 0
+par Circle.car[0].veinsmobility xOrientation 1
+par Circle.car[0].veinsmobility yOrientation 0
+par Circle.car[0].veinsmobility zOrientation 0
+par Circle.car[0].veinsmobility hostPositionOffset 0m
+attr unit m
+par Circle.car[0].veinsmobility setHostSpeed false
+par Circle.car[0].veinsmobility accidentCount 0
+par Circle.car[0].veinsmobility accidentStart 73s
+attr unit s
+par Circle.car[0].veinsmobility accidentDuration 50s
+attr unit s
+par Circle.car[0].veinsmobility accidentInterval "uniform(30s, 60s)"
+attr unit s
+scalar Circle.car[0].veinsmobility startTime 0
+scalar Circle.car[0].veinsmobility totalTime 0
+scalar Circle.car[0].veinsmobility stopTime 62
+scalar Circle.car[0].veinsmobility totalDistance 0
+scalar Circle.car[0].veinsmobility totalCO2Emission 0
+par Circle.car[0] typename "\"org.car2x.veins.nodes.Car\""
+par Circle.car[0] applType "\"MyCarApp\""
+par Circle.car[0] nicType "\"Nic80211p\""
+par Circle.car[0] veinsmobilityType "\"org.car2x.veins.modules.mobility.traci.TraCIMobility\""
+par Circle.car[1].appl typename "\"MyCarApp\""
+par Circle.car[1].appl vnfType "\"OBU\""
+par Circle.car[1].appl headerLength 80
+par Circle.car[1].nic.phy80211p typename "\"org.car2x.veins.modules.phy.PhyLayer80211p\""
+par Circle.car[1].nic.phy80211p recordStats false
+par Circle.car[1].nic.phy80211p usePropagationDelay true
+par Circle.car[1].nic.phy80211p noiseFloor -98dBm
+attr unit dBm
+par Circle.car[1].nic.phy80211p useNoiseFloor true
+par Circle.car[1].nic.phy80211p antenna "<Antenna type=\"SampledAntenna1D\" id=\"monopole\">...</Antenna> at C:/Users/Acer/Desktop/omnetpp-6.1/samples/sumoveins/\\antenna.xml:35"
+par Circle.car[1].nic.phy80211p antennaOffsetX 0m
+attr unit m
+par Circle.car[1].nic.phy80211p antennaOffsetY 0m
+attr unit m
+par Circle.car[1].nic.phy80211p antennaOffsetZ 1.895m
+attr unit m
+par Circle.car[1].nic.phy80211p antennaOffsetYaw 0rad
+attr unit rad
+par Circle.car[1].nic.phy80211p analogueModels "<root>...</root> at C:/Users/Acer/Desktop/omnetpp-6.1/samples/sumoveins/\\config.xml:34"
+par Circle.car[1].nic.phy80211p decider "<root>...</root> at C:/Users/Acer/Desktop/omnetpp-6.1/samples/sumoveins/\\config.xml:34"
+par Circle.car[1].nic.phy80211p minPowerLevel -110dBm
+attr unit dBm
+par Circle.car[1].nic.phy80211p timeRXToTX 0s
+attr unit s
+par Circle.car[1].nic.phy80211p timeRXToSleep 0s
+attr unit s
+par Circle.car[1].nic.phy80211p timeTXToRX 0s
+attr unit s
+par Circle.car[1].nic.phy80211p timeTXToSleep 0s
+attr unit s
+par Circle.car[1].nic.phy80211p timeSleepToRX 0s
+attr unit s
+par Circle.car[1].nic.phy80211p timeSleepToTX 0s
+attr unit s
+par Circle.car[1].nic.phy80211p initialRadioState 0
+par Circle.car[1].nic.phy80211p radioMinAtt 1
+par Circle.car[1].nic.phy80211p radioMaxAtt 0
+par Circle.car[1].nic.phy80211p nbRadioChannels 1
+par Circle.car[1].nic.phy80211p initialRadioChannel 0
+par Circle.car[1].nic.phy80211p ccaThreshold -65dBm
+attr unit dBm
+par Circle.car[1].nic.phy80211p collectCollisionStatistics false
+par Circle.car[1].nic.phy80211p allowTxDuringRx false
+scalar Circle.car[1].nic.phy80211p busyTime 0
+par Circle.car[1].nic.mac1609_4 typename "\"org.car2x.veins.modules.mac.ieee80211p.Mac1609_4\""
+par Circle.car[1].nic.mac1609_4 notAffectedByHostState false
+par Circle.car[1].nic.mac1609_4 headerLength 0bit
+attr unit bit
+par Circle.car[1].nic.mac1609_4 address "\"auto\""
+par Circle.car[1].nic.mac1609_4 useServiceChannel false
+par Circle.car[1].nic.mac1609_4 serviceChannel 1
+par Circle.car[1].nic.mac1609_4 bitrate 6000000bps
+attr unit bps
+par Circle.car[1].nic.mac1609_4 syncOffset 0.0003s
+attr unit s
+par Circle.car[1].nic.mac1609_4 txPower 20mW
+attr unit mW
+par Circle.car[1].nic.mac1609_4 queueSize 0
+par Circle.car[1].nic.mac1609_4 dot11RTSThreshold 12000bit
+attr unit bit
+par Circle.car[1].nic.mac1609_4 dot11ShortRetryLimit 7
+par Circle.car[1].nic.mac1609_4 dot11LongRetryLimit 4
+par Circle.car[1].nic.mac1609_4 ackLength 112bit
+attr unit bit
+par Circle.car[1].nic.mac1609_4 useAcks false
+par Circle.car[1].nic.mac1609_4 frameErrorRate 0
+par Circle.car[1].nic.mac1609_4 ackErrorRate 0
+scalar Circle.car[1].nic.mac1609_4 ReceivedUnicastPackets 0
+scalar Circle.car[1].nic.mac1609_4 ReceivedBroadcasts 0
+scalar Circle.car[1].nic.mac1609_4 SentPackets 0
+scalar Circle.car[1].nic.mac1609_4 SentAcknowledgements 0
+scalar Circle.car[1].nic.mac1609_4 RetriesExceeded 0
+scalar Circle.car[1].nic.mac1609_4 SNIRLostPackets 0
+scalar Circle.car[1].nic.mac1609_4 RXTXLostPackets 0
+scalar Circle.car[1].nic.mac1609_4 TotalLostPackets 0
+scalar Circle.car[1].nic.mac1609_4 DroppedPacketsInMac 0
+scalar Circle.car[1].nic.mac1609_4 TooLittleTime 0
+scalar Circle.car[1].nic.mac1609_4 TimesIntoBackoff 0
+scalar Circle.car[1].nic.mac1609_4 SlotsBackoff 0
+scalar Circle.car[1].nic.mac1609_4 NumInternalContention 0
+scalar Circle.car[1].nic.mac1609_4 totalBusyTime 0
+scalar Circle.car[1].nic.mac1609_4 retriesExceeded:count 0
+attr recordingmode count
+attr source org_car2x_veins_modules_mac_sigRetriesExceeded
+scalar Circle.car[1].nic.mac1609_4 sentAcks:count 0
+attr recordingmode count
+attr source org_car2x_veins_modules_mac_sigSentAck
+scalar Circle.car[1].nic.mac1609_4 sentPackets:count 0
+attr recordingmode count
+attr source org_car2x_veins_modules_mac_sigSentPacket
+scalar Circle.car[1].nic.mac1609_4 collisions:count 0
+attr recordingmode count
+attr source org_car2x_veins_modules_mac_sigCollision
+scalar Circle.car[1].nic.mac1609_4 channelBusy:timeavg 0
+attr recordingmode timeavg
+attr source org_car2x_veins_modules_mac_sigChannelBusy
+par Circle.car[1].nic typename "\"org.car2x.veins.modules.nic.Nic80211p\""
+par Circle.car[1].nic connectionManagerName "\"connectionManager\""
+par Circle.car[1].veinsmobility typename "\"org.car2x.veins.modules.mobility.traci.TraCIMobility\""
+par Circle.car[1].veinsmobility notAffectedByHostState true
+par Circle.car[1].veinsmobility x 0
+par Circle.car[1].veinsmobility y 0
+par Circle.car[1].veinsmobility z 0
+par Circle.car[1].veinsmobility xOrientation 1
+par Circle.car[1].veinsmobility yOrientation 0
+par Circle.car[1].veinsmobility zOrientation 0
+par Circle.car[1].veinsmobility hostPositionOffset 0m
+attr unit m
+par Circle.car[1].veinsmobility setHostSpeed false
+par Circle.car[1].veinsmobility accidentCount 0
+par Circle.car[1].veinsmobility accidentStart 46.4644s
+attr unit s
+par Circle.car[1].veinsmobility accidentDuration "uniform(30s, 60s)"
+attr unit s
+par Circle.car[1].veinsmobility accidentInterval "uniform(30s, 60s)"
+attr unit s
+scalar Circle.car[1].veinsmobility startTime 0
+scalar Circle.car[1].veinsmobility totalTime 0
+scalar Circle.car[1].veinsmobility stopTime 62
+scalar Circle.car[1].veinsmobility totalDistance 0
+scalar Circle.car[1].veinsmobility totalCO2Emission 0
+par Circle.car[1] typename "\"org.car2x.veins.nodes.Car\""
+par Circle.car[1] applType "\"MyCarApp\""
+par Circle.car[1] nicType "\"Nic80211p\""
+par Circle.car[1] veinsmobilityType "\"org.car2x.veins.modules.mobility.traci.TraCIMobility\""
+par Circle typename "\"Circle\""
+par Circle playgroundSizeX 2500m
+attr unit m
+par Circle playgroundSizeY 2500m
+attr unit m
+par Circle playgroundSizeZ 50m
+attr unit m
+

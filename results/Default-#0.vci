@@ -1,0 +1,104 @@
+file 7599 1751268585                                            
+version 3
+run Default-0-20250630-13:14:21-17224
+attr configname Default
+attr datetime 20250630-13:14:21
+attr datetimef 20250630-131421
+attr experiment Default
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network Circle
+attr processid 17224
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config image-path ../../../veins-veins-5.3.1/images
+config cmdenv-express-mode true
+config cmdenv-autoflush true
+config cmdenv-status-frequency 1s
+config **.cmdenv-log-level info
+config image-path ../../images
+config network Circle
+config debug-on-errors true
+config print-undisposed true
+config sim-time-limit 62s
+config **.scalar-recording true
+config **.vector-recording true
+config *.playgroundSizeX 2500m
+config *.playgroundSizeY 2500m
+config *.playgroundSizeZ 50m
+config *.annotations.draw true
+config *.manager.updateInterval 1s
+config *.manager.host "\"localhost\""
+config *.manager.port 9999
+config *.manager.autoShutdown true
+config *.manager.launchConfig "xmldoc(\"sumoveins.launchd.xml\")"
+config *.manager.trafficLightModuleType "\"org.car2x.veins.nodes.TrafficLight\""
+config *.tls[*].mobility.x 0
+config *.tls[*].mobility.y 0
+config *.tls[*].mobility.z 3
+config *.tls[*].applType "\"org.car2x.veins.modules.application.traci.TraCIDemoTrafficLightApp\""
+config *.tls[*].logicType "\"org.car2x.veins.modules.world.traci.trafficLight.logics.TraCITrafficLightSimpleLogic\""
+config *.rsu[0].mobility.x 2000
+config *.rsu[0].mobility.y 2000
+config *.rsu[0].mobility.z 3
+config *.rsu[*].applType "\"MyRSUApp\""
+config *.rsu[*].appl.headerLength "80 bit"
+config *.rsu[*].appl.sendBeacons false
+config *.rsu[*].appl.dataOnSch false
+config *.rsu[*].appl.beaconInterval 1s
+config *.rsu[*].appl.beaconUserPriority 7
+config *.rsu[*].appl.dataUserPriority 5
+config *.rsu[*].nic.phy80211p.antennaOffsetZ "0 m"
+config *.connectionManager.sendDirect true
+config *.connectionManager.maxInterfDist 2600m
+config *.connectionManager.drawMaxIntfDist false
+config *.**.nic.mac1609_4.useServiceChannel false
+config *.**.nic.mac1609_4.txPower 20mW
+config *.**.nic.mac1609_4.bitrate 6Mbps
+config *.**.nic.phy80211p.minPowerLevel -110dBm
+config *.**.nic.phy80211p.useNoiseFloor true
+config *.**.nic.phy80211p.noiseFloor -98dBm
+config *.**.nic.phy80211p.decider "xmldoc(\"config.xml\")"
+config *.**.nic.phy80211p.analogueModels "xmldoc(\"config.xml\")"
+config *.**.nic.phy80211p.usePropagationDelay true
+config *.**.nic.phy80211p.antenna "xmldoc(\"antenna.xml\", \"/root/Antenna[@id='monopole']\")"
+config *.car[*].nic.phy80211p.antennaOffsetY "0 m"
+config *.car[*].nic.phy80211p.antennaOffsetZ "1.895 m"
+config *.car[*].applType "\"MyCarApp\""
+config *.car[*].appl.headerLength "80 bit"
+config *.car[*].appl.sendBeacons false
+config *.car[*].appl.dataOnSch false
+config *.car[*].appl.beaconInterval 1s
+config *.car[*].veinsmobility.x 0
+config *.car[*].veinsmobility.y 0
+config *.car[*].veinsmobility.z 0
+config *.car[*].veinsmobility.setHostSpeed false
+config *.car[*0].veinsmobility.accidentCount 0
+config *.car[*0].veinsmobility.accidentStart 73s
+config *.car[*0].veinsmobility.accidentDuration 50s
+
+vector 0 Circle.rsu[0].nic.phy80211p RadioState ETV
+vector 1 Circle.rsu[0].nic.phy80211p RadioChannel ETV
+vector 2 Circle.car[0].nic.phy80211p RadioState ETV
+vector 3 Circle.car[0].nic.phy80211p RadioChannel ETV
+vector 4 Circle.car[1].nic.phy80211p RadioState ETV
+vector 5 Circle.car[1].nic.phy80211p RadioChannel ETV
+vector 6 Circle.node[0].nic.phy80211p RadioState ETV
+vector 7 Circle.node[0].nic.phy80211p RadioChannel ETV
+vector 8 Circle.manager posx ETV
+vector 9 Circle.manager posy ETV
+vector 10 Circle.manager speed ETV
+vector 11 Circle.manager acceleration ETV
+vector 12 Circle.manager co2emission ETV
+12	3902 639 10 122 3 31 29 0.973 9.039336633193 103.80571962547 543.61274253167
+11	4541 753 10 122 3 31 29 -4.5 2.5865135943983 10.200054066808 156.23307917302
+10	5294 774 6 122 2 31 30 1.4392818092834 11.639335876092 195.70147799283 1447.7169140073
+9	6068 767 2 122 1 31 31 28.08303045944 93.295945211079 1856.8054908217 126389.53757233
+8	6835 762 2 122 1 31 31 27.23367232615 89.112346358098 1862.3748534341 127297.65369341
+

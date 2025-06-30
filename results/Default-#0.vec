@@ -1,0 +1,248 @@
+version 3
+run Default-0-20250630-13:14:21-17224
+attr configname Default
+attr datetime 20250630-13:14:21
+attr datetimef 20250630-131421
+attr experiment Default
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network Circle
+attr processid 17224
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config image-path ../../../veins-veins-5.3.1/images
+config cmdenv-express-mode true
+config cmdenv-autoflush true
+config cmdenv-status-frequency 1s
+config **.cmdenv-log-level info
+config image-path ../../images
+config network Circle
+config debug-on-errors true
+config print-undisposed true
+config sim-time-limit 62s
+config **.scalar-recording true
+config **.vector-recording true
+config *.playgroundSizeX 2500m
+config *.playgroundSizeY 2500m
+config *.playgroundSizeZ 50m
+config *.annotations.draw true
+config *.manager.updateInterval 1s
+config *.manager.host "\"localhost\""
+config *.manager.port 9999
+config *.manager.autoShutdown true
+config *.manager.launchConfig "xmldoc(\"sumoveins.launchd.xml\")"
+config *.manager.trafficLightModuleType "\"org.car2x.veins.nodes.TrafficLight\""
+config *.tls[*].mobility.x 0
+config *.tls[*].mobility.y 0
+config *.tls[*].mobility.z 3
+config *.tls[*].applType "\"org.car2x.veins.modules.application.traci.TraCIDemoTrafficLightApp\""
+config *.tls[*].logicType "\"org.car2x.veins.modules.world.traci.trafficLight.logics.TraCITrafficLightSimpleLogic\""
+config *.rsu[0].mobility.x 2000
+config *.rsu[0].mobility.y 2000
+config *.rsu[0].mobility.z 3
+config *.rsu[*].applType "\"MyRSUApp\""
+config *.rsu[*].appl.headerLength "80 bit"
+config *.rsu[*].appl.sendBeacons false
+config *.rsu[*].appl.dataOnSch false
+config *.rsu[*].appl.beaconInterval 1s
+config *.rsu[*].appl.beaconUserPriority 7
+config *.rsu[*].appl.dataUserPriority 5
+config *.rsu[*].nic.phy80211p.antennaOffsetZ "0 m"
+config *.connectionManager.sendDirect true
+config *.connectionManager.maxInterfDist 2600m
+config *.connectionManager.drawMaxIntfDist false
+config *.**.nic.mac1609_4.useServiceChannel false
+config *.**.nic.mac1609_4.txPower 20mW
+config *.**.nic.mac1609_4.bitrate 6Mbps
+config *.**.nic.phy80211p.minPowerLevel -110dBm
+config *.**.nic.phy80211p.useNoiseFloor true
+config *.**.nic.phy80211p.noiseFloor -98dBm
+config *.**.nic.phy80211p.decider "xmldoc(\"config.xml\")"
+config *.**.nic.phy80211p.analogueModels "xmldoc(\"config.xml\")"
+config *.**.nic.phy80211p.usePropagationDelay true
+config *.**.nic.phy80211p.antenna "xmldoc(\"antenna.xml\", \"/root/Antenna[@id='monopole']\")"
+config *.car[*].nic.phy80211p.antennaOffsetY "0 m"
+config *.car[*].nic.phy80211p.antennaOffsetZ "1.895 m"
+config *.car[*].applType "\"MyCarApp\""
+config *.car[*].appl.headerLength "80 bit"
+config *.car[*].appl.sendBeacons false
+config *.car[*].appl.dataOnSch false
+config *.car[*].appl.beaconInterval 1s
+config *.car[*].veinsmobility.x 0
+config *.car[*].veinsmobility.y 0
+config *.car[*].veinsmobility.z 0
+config *.car[*].veinsmobility.setHostSpeed false
+config *.car[*0].veinsmobility.accidentCount 0
+config *.car[*0].veinsmobility.accidentStart 73s
+config *.car[*0].veinsmobility.accidentDuration 50s
+
+vector 0 Circle.rsu[0].nic.phy80211p RadioState ETV
+vector 1 Circle.rsu[0].nic.phy80211p RadioChannel ETV
+vector 2 Circle.car[0].nic.phy80211p RadioState ETV
+vector 3 Circle.car[0].nic.phy80211p RadioChannel ETV
+vector 4 Circle.car[1].nic.phy80211p RadioState ETV
+vector 5 Circle.car[1].nic.phy80211p RadioChannel ETV
+vector 6 Circle.node[0].nic.phy80211p RadioState ETV
+vector 7 Circle.node[0].nic.phy80211p RadioChannel ETV
+vector 8 Circle.manager posx ETV
+vector 9 Circle.manager posy ETV
+vector 10 Circle.manager speed ETV
+vector 11 Circle.manager acceleration ETV
+vector 12 Circle.manager co2emission ETV
+12	10	3	2.1732912127287
+12	14	4	3.9618293141696
+12	18	5	5.59568457941
+12	22	6	3.7283396892278
+12	26	7	0.973
+12	30	8	0.973
+12	34	9	5.6248083246145
+12	38	10	6.7314005282816
+12	42	11	2.7865397915973
+12	46	12	0.973
+12	50	13	0.973
+12	54	14	3.2791309482194
+12	58	15	6.4982274489716
+12	62	16	0.973
+12	66	17	0.973
+12	70	18	0.973
+12	74	19	5.4189787643228
+12	78	20	5.9361039005105
+12	82	21	6.626626962409
+12	86	22	0.973
+12	90	23	0.973
+12	94	24	3.5111179692878
+12	98	25	5.6390188038729
+12	102	26	4.2618729034613
+12	106	27	0.973
+12	110	28	0.973
+12	114	29	5.1884033944492
+12	118	30	7.1020084567461
+12	122	31	9.039336633193
+11	10	3	1.3682811009465
+11	14	4	2.1684262542287
+11	18	5	2.3277717246674
+11	22	6	1.0703438619454
+11	26	7	-2.4483352647396
+11	30	8	-1.5370700187248
+11	34	9	2.5007992214756
+11	38	10	2.304459202569
+11	42	11	0.48283514453748
+11	46	12	-2.8868750271387
+11	50	13	-2.883455685065
+11	54	14	1.4645417755703
+11	58	15	2.5855512305163
+11	62	16	-0.20577464398731
+11	66	17	-3.5521685784683
+11	70	18	-0.40476583272684
+11	74	19	2.5865135943983
+11	78	20	2.1262006659992
+11	82	21	1.9475630259607
+11	86	22	-2.8166339287284
+11	90	23	-3.7274590572194
+11	94	24	1.5972831639228
+11	98	25	2.211610493972
+11	102	26	1.2304925525096
+11	106	27	-4.5
+11	110	28	-0.26161359220278
+11	114	29	2.3656493975548
+11	118	30	2.5112010973739
+11	122	31	2.5746821876615
+10	6	2	1.4392818092834
+10	10	3	2.8075629102299
+10	14	4	4.9759891644586
+10	18	5	7.303760889126
+10	22	6	8.3741047510714
+10	26	7	5.9257694863318
+10	30	8	4.388699467607
+10	34	9	6.8894986890826
+10	38	10	9.1939578916516
+10	42	11	9.6767930361891
+10	46	12	6.7899180090504
+10	50	13	3.9064623239854
+10	54	14	5.3710040995556
+10	58	15	7.9565553300719
+10	62	16	7.7507806860846
+10	66	17	4.1986121076163
+10	70	18	3.7938462748895
+10	74	19	6.3803598692878
+10	78	20	8.506560535287
+10	82	21	10.454123561248
+10	86	22	7.6374896325193
+10	90	23	3.9100305752999
+10	94	24	5.5073137392227
+10	98	25	7.7189242331947
+10	102	26	8.9494167857043
+10	106	27	4.4494167857043
+10	110	28	4.1878031935015
+10	114	29	6.5534525910563
+10	118	30	9.0646536884302
+10	122	31	11.639335876092
+9	2	1	29.357328519856
+9	6	2	29.954864289053
+9	10	3	31.120458999076
+9	14	4	33.186302876017
+9	18	5	36.218550176557
+9	22	6	39.695164062381
+9	26	7	42.155321069342
+9	30	8	46.114472692481
+9	34	9	53.002026843407
+9	38	10	62.193389770934
+9	42	11	71.867451564381
+9	46	12	78.655453141591
+9	50	13	81.322920275105
+9	54	14	83.878136591742
+9	58	15	87.663410188035
+9	62	16	91.350787987168
+9	66	17	93.295945211079
+9	70	18	91.856344033741
+9	74	19	88.792786455929
+9	78	20	84.7083243687
+9	82	21	79.688731412885
+9	86	22	76.021557504438
+9	90	23	72.776776390583
+9	94	24	67.325238146843
+9	98	25	59.684487564923
+9	102	26	50.825706283049
+9	106	27	46.622575104571
+9	110	28	44.153215681226
+9	114	29	40.289493018646
+9	118	30	34.945240138535
+9	122	31	28.08303045944
+8	2	1	60.069711191336
+8	6	2	61.379093920359
+8	10	3	63.933266676236
+8	14	4	68.460159345707
+8	18	5	75.104736039064
+8	22	6	82.723055162782
+8	26	7	88.11400790847
+8	30	8	89.112346358098
+8	34	9	89.090956438375
+8	38	10	89.06241183301
+8	42	11	89.032368162844
+8	46	12	89.011287412604
+8	50	13	86.612096756367
+8	54	14	81.889491421744
+8	58	15	74.893467968676
+8	62	16	68.078377617391
+8	66	17	64.363627353584
+8	70	18	60.933494096075
+8	74	19	55.337489381612
+8	78	20	47.876663686109
+8	82	21	38.7076942341
+8	86	22	32.009102169415
+8	90	23	30.369539484369
+8	94	24	29.590748306692
+8	98	25	28.499212509275
+8	102	26	27.23367232615
+8	106	27	27.487258759651
+8	110	28	30.8693148342
+8	114	29	36.16233344532
+8	118	30	43.483570611466
+8	122	31	52.884298023045
+
