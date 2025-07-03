@@ -25,7 +25,7 @@ network Circle extends Scenario
         rsu[1]: RSU {
             @display("p=150,140;i=veins/sign/yellowdiamond;is=vs");
         }
-		car[2]:Car{
+		car[1]:Car{
 		    @display("p=100,250,row,100");
 		}
         tls[0]: TrafficLight {

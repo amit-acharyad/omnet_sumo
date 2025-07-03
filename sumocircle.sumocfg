@@ -3,11 +3,29 @@
 <!-- generated on 2025-06-07 10:03:44 by Eclipse SUMO sumo Version 1.23.1
 -->
 
-<sumoConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
 
     <input>
         <net-file value="circlenet.net.xml"/>
         <route-files value="circledemand.rou.xml"/>
     </input>
+    
+  <time>
+        <begin>0</begin>
+        <end>10000</end>  <!-- simulation runs until time 1000 -->
+        <step-length>0.01</step-length>
+    </time>
+      <report>
+        <xml-validation value="never"/>
+        <xml-validation.net value="never"/>
+        <no-step-log value="true"/>
+    </report>
+     <gui_only>
+        <start value="true"/>
+        
+    </gui_only>
+    
+        
+    
 
-</sumoConfiguration>
+</configuration>

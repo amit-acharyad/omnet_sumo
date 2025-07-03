@@ -2,30 +2,27 @@
 # OMNeT++/OMNEST Makefile for sumoveins
 #
 # This file was generated with the command:
-#  opp_makemake -f -IC:/Users/Acer/Desktop/veins-veins-5.3.1/src -LC:/Users/Acer/Desktop/veins-veins-5.3.1/src C:/Users/Acer/Desktop/veins-veins-5.3.1/src/libveins.a
+#  opp_makemake -f --deep -O out -KVEINS_PROJ=/home/amit/veins -DVEINS_IMPORT -I. -I$$\(VEINS_PROJ\)/src -Isrc -L$$\(VEINS_PROJ\)/src -lveins$$\(D\)
 #
 
 # Name of target to be created (-o option)
+TARGET = sumoveins$(D)$(EXE_SUFFIX)
 TARGET_DIR = .
-TARGET_NAME = sumoveins$(D)
-TARGET = $(TARGET_NAME)$(EXE_SUFFIX)
-TARGET_IMPLIB = $(TARGET_NAME)$(IMPLIB_SUFFIX)
-TARGET_IMPDEF = $(TARGET_NAME)$(IMPDEF_SUFFIX)
-TARGET_FILES = $(TARGET_DIR)/$(TARGET)
 
 # User interface (uncomment one) (-u option)
-USERIF_LIBS = $(ALL_ENV_LIBS) # that is, $(QTENV_LIBS) $(CMDENV_LIBS)
+USERIF_LIBS = $(ALL_ENV_LIBS) # that is, $(TKENV_LIBS) $(QTENV_LIBS) $(CMDENV_LIBS)
 #USERIF_LIBS = $(CMDENV_LIBS)
+#USERIF_LIBS = $(TKENV_LIBS)
 #USERIF_LIBS = $(QTENV_LIBS)
 
 # C++ include paths (with -I)
-INCLUDE_PATH = -IC:/Users/Acer/Desktop/veins-veins-5.3.1/src
+INCLUDE_PATH = -I. -I$(VEINS_PROJ)/src -Isrc
 
 # Additional object and library files to link with
-EXTRA_OBJS = C:/Users/Acer/Desktop/veins-veins-5.3.1/src/libveins.dll.a
+EXTRA_OBJS =
 
 # Additional libraries (-L, -l options)
-LIBS = $(LDFLAG_LIBPATH)C:/Users/Acer/Desktop/veins-veins-5.3.1/src
+LIBS = $(LDFLAG_LIBPATH)$(VEINS_PROJ)/src  -lveins$(D)
 
 # Output directory
 PROJECT_OUTPUT_DIR = out
@@ -41,6 +38,9 @@ MSGFILES =
 # SM files
 SMFILES =
 
+# Other makefile variables (-K)
+VEINS_PROJ=/home/amit/veins
+
 #------------------------------------------------------------------------------
 
 # Pull in OMNeT++ configuration (Makefile.inc)
@@ -48,7 +48,11 @@ SMFILES =
 ifneq ("$(OMNETPP_CONFIGFILE)","")
 CONFIGFILE = $(OMNETPP_CONFIGFILE)
 else
+ifneq ("$(OMNETPP_ROOT)","")
+CONFIGFILE = $(OMNETPP_ROOT)/Makefile.inc
+else
 CONFIGFILE = $(shell opp_configfilepath)
+endif
 endif
 
 ifeq ("$(wildcard $(CONFIGFILE))","")
@@ -59,37 +63,36 @@ include $(CONFIGFILE)
 
 # Simulation kernel and user interface libraries
 OMNETPP_LIBS = $(OPPMAIN_LIB) $(USERIF_LIBS) $(KERNEL_LIBS) $(SYS_LIBS)
-ifneq ($(PLATFORM),win32)
-LIBS += -Wl,-rpath,$(abspath C:/Users/Acer/Desktop/veins-veins-5.3.1/src)
+ifneq ($(TOOLCHAIN_NAME),clangc2)
+LIBS += -Wl,-rpath,$(abspath $(VEINS_PROJ)/src)
 endif
 
-COPTS = $(CFLAGS) $(IMPORT_DEFINES)  $(INCLUDE_PATH) -I$(OMNETPP_INCL_DIR)
+COPTS = $(CFLAGS) $(IMPORT_DEFINES) -DVEINS_IMPORT $(INCLUDE_PATH) -I$(OMNETPP_INCL_DIR)
 MSGCOPTS = $(INCLUDE_PATH)
 SMCOPTS =
 
 # we want to recompile everything if COPTS changes,
-# so we store COPTS into $COPTS_FILE (if COPTS has changed since last build)
-# and make the object files depend on it
+# so we store COPTS into $COPTS_FILE and have object
+# files depend on it (except when "make depend" was called)
 COPTS_FILE = $O/.last-copts
 ifneq ("$(COPTS)","$(shell cat $(COPTS_FILE) 2>/dev/null || echo '')")
-  $(shell $(MKPATH) "$O")
-  $(file >$(COPTS_FILE),$(COPTS))
+$(shell $(MKPATH) "$O" && echo "$(COPTS)" >$(COPTS_FILE))
 endif
 
 #------------------------------------------------------------------------------
 # User-supplied makefile fragment(s)
+# >>>
+# <<<
 #------------------------------------------------------------------------------
 
 # Main target
-all: $(TARGET_FILES)
+all: $(TARGET_DIR)/$(TARGET)
 
 $(TARGET_DIR)/% :: $O/%
 	@mkdir -p $(TARGET_DIR)
 	$(Q)$(LN) $< $@
-ifeq ($(TOOLCHAIN_NAME),clang-msabi)
-	-$(Q)-$(LN) $(<:%.dll=%.lib) $(@:%.dll=%.lib) 2>/dev/null
-
-$O/$(TARGET_NAME).pdb: $O/$(TARGET)
+ifeq ($(TOOLCHAIN_NAME),clangc2)
+	$(Q)-$(LN) $(<:%.dll=%.lib) $(@:%.dll=%.lib)
 endif
 
 $O/$(TARGET): $(OBJS)  $(wildcard $(EXTRA_OBJS)) Makefile $(CONFIGFILE)
@@ -99,9 +102,7 @@ $O/$(TARGET): $(OBJS)  $(wildcard $(EXTRA_OBJS)) Makefile $(CONFIGFILE)
 
 .PHONY: all clean cleanall depend msgheaders smheaders
 
-# disabling all implicit rules
-.SUFFIXES :
-.PRECIOUS : %_m.h %_m.cc
+.SUFFIXES: .cc
 
 $O/%.o: %.cc $(COPTS_FILE) | msgheaders smheaders
 	@$(MKPATH) $(dir $@)
@@ -123,18 +124,14 @@ smheaders: $(SMFILES:.sm=_sm.h)
 clean:
 	$(qecho) Cleaning $(TARGET)
 	$(Q)-rm -rf $O
-	$(Q)-rm -f $(TARGET_FILES)
+	$(Q)-rm -f $(TARGET_DIR)/$(TARGET)
+	$(Q)-rm -f $(TARGET_DIR)/$(TARGET:%.dll=%.lib)
 	$(Q)-rm -f $(call opp_rwildcard, . , *_m.cc *_m.h *_sm.cc *_sm.h)
 
 cleanall:
-	$(Q)$(CLEANALL_COMMAND)
+	$(Q)$(MAKE) -s clean MODE=release
+	$(Q)$(MAKE) -s clean MODE=debug
 	$(Q)-rm -rf $(PROJECT_OUTPUT_DIR)
-
-help:
-	@echo "$$HELP_SYNOPSYS"
-	@echo "$$HELP_TARGETS"
-	@echo "$$HELP_VARIABLES"
-	@echo "$$HELP_EXAMPLES"
 
 # include all dependencies
 -include $(OBJS:%=%.d) $(MSGFILES:%.msg=$O/%_m.h.d)

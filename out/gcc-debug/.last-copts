@@ -1,0 +1,1 @@
+-g -Wall -MMD -MP -MF .d  -fPIC  -fno-omit-frame-pointer -DHAVE_SWAPCONTEXT -DWITH_MPI -DXMLPARSER=libxml -DPREFER_QTENV -DWITH_QTENV -DWITH_PARSIM -DWITH_NETBUILDER -DWITH_OSG  -DVEINS_IMPORT -I. -I/home/amit/veins/src -Isrc -I/home/amit/omnet/include

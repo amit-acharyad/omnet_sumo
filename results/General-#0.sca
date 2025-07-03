@@ -1,14 +1,14 @@
 version 2
-run Default-0-20250703-18:15:41-10438
-attr configname Default
-attr datetime 20250703-18:15:41
-attr experiment Default
+run General-0-20250703-18:03:39-8061
+attr configname General
+attr datetime 20250703-18:03:39
+attr experiment General
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvarsf ""
 attr measurement ""
 attr network Circle
-attr processid 10438
+attr processid 8061
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -154,7 +154,7 @@ scalar Circle.car[0].nic.mac1609_4 channelBusy:timeavg 0
 attr source org_car2x_veins_modules_mac_sigChannelBusy
 scalar Circle.car[0].veinsmobility startTime 0
 scalar Circle.car[0].veinsmobility totalTime 0
-scalar Circle.car[0].veinsmobility stopTime 200
+scalar Circle.car[0].veinsmobility stopTime 98
 scalar Circle.car[0].veinsmobility totalDistance 0
 scalar Circle.car[0].veinsmobility totalCO2Emission 0
 
