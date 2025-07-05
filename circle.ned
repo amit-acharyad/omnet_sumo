@@ -15,7 +15,6 @@
 
 import org.car2x.veins.nodes.RSU;
 import org.car2x.veins.nodes.Car;
-
 import org.car2x.veins.nodes.Scenario;
 import org.car2x.veins.nodes.TrafficLight;
 
@@ -23,15 +22,15 @@ network Circle extends Scenario
 {
     submodules:
         rsu[1]: RSU {
-            @display("p=150,140;i=veins/sign/yellowdiamond;is=vs");
+            @display("p=300,40;i=veins/sign/yellowdiamond;is=vs");
         }
-		car[1]:Car{
-		    @display("p=100,250,row,100");
-		}
+
         tls[0]: TrafficLight {
-             @display("p=400,100");
+            @display("p=486,70");
         }
        
         
-        
+
+
+
 }

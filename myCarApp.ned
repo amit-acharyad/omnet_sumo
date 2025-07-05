@@ -22,6 +22,7 @@ simple MyCarApp like IBaseApplLayer
     parameters:
         string vnfType=default("OBU");
         int headerLength=80;
+        double sendInterval @unit(s);
         @display("i=block/app");
     gates:
  		input lowerLayerIn ; // from network layer

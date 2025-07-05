@@ -1,20 +1,21 @@
-file 6152 1751545859                                            
+file 6749 1751699372                                            
 version 2
-run Default-0-20250703-18:15:41-10438
+run Default-0-20250705-12:53:48-40474
 attr configname Default
-attr datetime 20250703-18:15:41
+attr datetime 20250705-12:53:48
 attr experiment Default
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvarsf ""
 attr measurement ""
 attr network Circle
-attr processid 10438
+attr processid 40474
 attr repetition 0
 attr replication #0
 attr resultdir results
 attr runnumber 0
 attr seedset 0
+param *.**.appl.logLevel "\"debug\""
 param *.playgroundSizeX 2500m
 param *.playgroundSizeY 2500m
 param *.playgroundSizeZ 50m
@@ -31,53 +32,63 @@ param *.tls[*].mobility.y 0
 param *.tls[*].mobility.z 3
 param *.tls[*].applType "\"org.car2x.veins.modules.application.traci.TraCIDemoTrafficLightApp\""
 param *.tls[*].logicType "\"org.car2x.veins.modules.world.traci.trafficLight.logics.TraCITrafficLightSimpleLogic\""
-param *.rsu[0].mobility.x 2000
-param *.rsu[0].mobility.y 2000
+param *.rsu[0].mobility.x 100
+param *.rsu[0].mobility.y 100
 param *.rsu[0].mobility.z 3
 param *.rsu[*].applType "\"MyRSUApp\""
 param *.rsu[*].appl.headerLength "80 bit"
-param *.rsu[*].appl.sendBeacons false
-param *.rsu[*].appl.dataOnSch false
+param *.rsu[*].appl.sendBeacons true
+param *.rsu[*].appl.dataOnSch true
 param *.rsu[*].appl.beaconInterval 1s
 param *.rsu[*].appl.beaconUserPriority 7
 param *.rsu[*].appl.dataUserPriority 5
 param *.rsu[*].nic.phy80211p.antennaOffsetZ "0 m"
-param *.connectionManager.sendDirect true
+param *.rsu[0].mobility.initFromDisplayString false
+param *.connectionManager.sendDirect false
 param *.connectionManager.maxInterfDist 2600m
 param *.connectionManager.drawMaxIntfDist false
-param *.**.nic.mac1609_4.useServiceChannel false
+param *.node[0].nic.mac1609_4.useAcks false
+param *.node[0].nic.mac1609_4.qos false
+param *.node[0].nic.mac1609_4.headerLength 28B
+param *.node[0].nic.mac1609_4.maxQueueSize 100
 param *.**.nic.mac1609_4.txPower 20mW
 param *.**.nic.mac1609_4.bitrate 6Mbps
 param *.**.nic.phy80211p.minPowerLevel -110dBm
+param *.**.debug true
+param *.**.mac.trace true
+param *.**.nic.debug true
+param *.**.phy.trace true
 param *.**.nic.phy80211p.useNoiseFloor true
 param *.**.nic.phy80211p.noiseFloor -98dBm
 param *.**.nic.phy80211p.decider "xmldoc(\"config.xml\")"
 param *.**.nic.phy80211p.analogueModels "xmldoc(\"config.xml\")"
 param *.**.nic.phy80211p.usePropagationDelay true
 param *.**.nic.phy80211p.antenna "xmldoc(\"antenna.xml\", \"/root/Antenna[@id='monopole']\")"
-param *.car[*].nic.phy80211p.antennaOffsetY "0 m"
-param *.car[*].nic.phy80211p.antennaOffsetZ "1.895 m"
-param *.car[*].applType "\"MyCarApp\""
-param *.car[*].appl.headerLength "80 bit"
-param *.car[*].appl.sendBeacons false
-param *.car[*].appl.dataOnSch false
-param *.car[*].appl.beaconInterval 1s
-param *.car[*].veinsmobility.x 0
-param *.car[*].veinsmobility.y 0
-param *.car[*].veinsmobility.z 0
-param *.car[*].veinsmobility.setHostSpeed false
-param *.car[*0].veinsmobility.accidentCount 0
-param *.car[*0].veinsmobility.accidentStart 73s
-param *.car[*0].veinsmobility.accidentDuration 50s
+param *.node[*].nic.phy80211p.antennaOffsetY "0 m"
+param *.node[*].nic.phy80211p.antennaOffsetZ "1.895 m"
+param *.node[*].applType "\"MyCarApp\""
+param *.node[*].appl.headerLength "80 bit"
+param *.node[*].appl.sendBeacons true
+param *.node[*].appl.dataOnSch true
+param *.node[*].appl.beaconInterval 1s
+param *.node[*].veinsmobility.x 0
+param *.node[*].veinsmobility.y 0
+param *.node[*].veinsmobility.z 0
+param *.node[*].veinsmobility.setHostSpeed false
+param *.mode[*0].veinsmobility.accidentCount 0
+param *.node[*0].veinsmobility.accidentStart 73s
+param *.node[*0].veinsmobility.accidentDuration 50s
+param *.node[*].nic.phy.communicationRange 1000
+param *.rsu[*].nic.phy.communicationRange 1000
 
 vector 0 Circle.node[0].veinsmobility posx ETV
 vector 1 Circle.node[0].veinsmobility posy ETV
 vector 2 Circle.node[0].veinsmobility speed ETV
 vector 3 Circle.node[0].veinsmobility acceleration ETV
 vector 4 Circle.node[0].veinsmobility co2emission ETV
-4	3012 554 8 83 3 28 26 0.973 7.0086767682607 94.243109475163 454.54008651898
-3	3566 630 8 83 3 28 26 -4.4994929348421 2.0214641272393 6.9430246244802 146.21133564065
-2	4196 637 5 83 2 28 27 4.2131780557463 11.156202680226 194.12610189717 1499.8055015521
-1	4833 659 2 83 1 28 28 29.844171651137 93.019672724297 1698.1286574137 115831.38969471
-0	5492 659 2 83 1 28 28 26.969986854144 89.107912893632 1687.4354362908 116235.62101326
+0	3434 695 21 1322 1 28 28 26.969986854144 89.107912893632 1687.4354362908 116235.62101326
+1	4129 695 21 1322 1 28 28 29.844171651137 93.019672724297 1698.1286574137 115831.38969471
+2	4824 672 61 1322 2 28 27 4.2131780557463 11.156202680226 194.12610189717 1499.8055015521
+3	5496 664 103 1322 3 28 26 -4.4994929348421 2.0214641272393 6.9430246244802 146.21133564065
+4	6160 588 103 1322 3 28 26 0.973 7.0086767682607 94.243109475163 454.54008651898
 

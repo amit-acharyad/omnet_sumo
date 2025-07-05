@@ -23,7 +23,7 @@
 using namespace omnetpp;
 
 using namespace veins;
-
+/*
 class MyCarApp : public BaseApplLayer {
 protected:
         TraCIMobility* traciMobility = nullptr;
@@ -34,6 +34,18 @@ protected:
 
         virtual void handleSelfMsg(cMessage* msg) override;
         virtual void handleLowerMsg(cMessage* msg) override;
+};*/
+class MyCarApp : public BaseApplLayer { // Corrected base class
+protected:
+    double sendInterval;
+    cMessage* sendSpeedTimer; // Declare the member variable for the self-message
+
+protected:
+    virtual void initialize(int stage) override;
+    virtual void handleMessage(cMessage *msg) override;
+    virtual void sendSpeedUpdate(); // Your function to send speed messages
+    virtual void finish() override;
+
 };
 
 #endif

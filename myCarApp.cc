@@ -3,64 +3,108 @@
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
-// 
+//
 // This program is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU Lesser General Public License for more details.
-// 
+//
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
-// 
+//
 
 #include "myCarApp.h"
 #include "veins/modules/mobility/traci/TraCIMobility.h"
-
+#include "SpeedMessage_m.h"
 
 Define_Module(MyCarApp);
 
-void MyCarApp::initialize(int stage) {
-    BaseApplLayer::initialize(stage);
+void MyCarApp::initialize(int stage)
+{
+    EV<<"Initializing the my carapp"<<endl;
+    BaseApplLayer::initialize(stage); // Call base class initialize
 
     if (stage == 0) {
-        EV << "INFO: MyCarApp initialized at stage 0 on Car: " << getParentModule()->getFullName() << "\n";
-        TraCIMobility* mobility = check_and_cast<TraCIMobility*>(getParentModule()->getSubmodule("veinsmobility"));
-        traciMobility=mobility;
+        // Get parameters from NED file
+        sendInterval = par("sendInterval").doubleValue();
 
-
-        if (mobility) {
-                    EV << "INFO: Successfully obtained TraCIMobility module: " << mobility->getFullName()<< "\n";
-                } else {
-                    EV << "WARNING: TraCIMobility module not found!\n";
-                }
-
-    }
-
-    if (stage == 1) {
-        checkStatusTimer = new cMessage("check-status");
-        scheduleAt(simTime() + 1, checkStatusTimer);
+        // Create and schedule the first self-message to send speed
+        // It's good practice to declare this as a member variable if you need to cancel it later
+        sendSpeedTimer = new cMessage("sendSpeedMsg");
+        scheduleAt(simTime() + sendInterval, sendSpeedTimer);
     }
 }
 
-void MyCarApp::handleSelfMsg(cMessage* msg) {
-    if (msg == checkStatusTimer) {
-   int id = traciMobility->getId();
-     double speed = traciMobility->getSpeed();
-     EV << "Time: " << simTime()
-         << " | Car: " << getParentModule()->getFullName()
-      << " | Id: (" << id
-      << " | Speed: " << speed << " m/s\n";
+void MyCarApp::handleMessage(cMessage *msg)
+{
+    // Check if it's a self-message (scheduled by this module)
+    if (msg->isSelfMessage()) {
+        if (msg == sendSpeedTimer) { // Using the member variable for comparison
+            sendSpeedUpdate();  // Function to send speed message
 
-        scheduleAt(simTime() + 1, checkStatusTimer);  // repeat every 1s
+            // Reschedule the next self-message
+            scheduleAt(simTime() + sendInterval, sendSpeedTimer);
+        } else {
+            // Handle other types of self-messages if you introduce them
+            EV_WARN << "MyCarApp: Unhandled self-message: " << msg->getName() << endl;
+            delete msg; // Delete unknown self-messages
+        }
+    }
+    // Check if it's a message from the lower layer
+    else if (msg->getArrivalGate() != nullptr &&
+             strcmp(msg->getArrivalGate()->getBaseName(), "lowerLayerIn") == 0)
+    {
+        // For a car, you might not expect many application-level messages from lower layers.
+        // If you do, you'd add specific handling here (e.g., for acknowledgements, or RSU commands)
+        EV_INFO << "MyCarApp: Received message from lower layer: " << msg->getName() << endl;
+        delete msg; // Don't forget to free the memory
+    }
+    // Handle other types of messages (e.g., control messages from OMNeT++ core)
+    else {
+        EV_WARN << "MyCarApp: Unhandled message: " << msg->getName() << endl;
+        delete msg;
     }
 }
 
+void MyCarApp::sendSpeedUpdate()
+{
+    // Get the host vehicle's mobility module
+    TraCIMobility* mobility = check_and_cast<TraCIMobility*>(getParentModule()->getSubmodule("veinsmobility"));
 
-void MyCarApp::handleLowerMsg(cMessage* msg) {
-    // Process messages from lower layers (e.g., MAC, PHY)
-    EV << "MyCarApp received a message: " << msg->getName() << endl;
-    delete msg;
+    if (!mobility) {
+        EV_ERROR << "MyCarApp: Could not find mobility module!" << endl;
+        return;
+    }
+
+    // Get the current speed
+    double currentSpeed = mobility->getSpeed();
+
+    // Create a new SpeedMessage
+    SpeedMessage* speedMsg = new SpeedMessage("speedMessage");
+    speedMsg->setSpeed(currentSpeed);
+    // Set sender ID (e.g., vehicle ID or module full name)
+    speedMsg->setSenderId(getParentModule()->getFullName());
+    speedMsg->setChannelNumber(0);
+    // Set the recipient to the broadcast address for the network layer
+    // Optionally set sender's network layer address if needed by your network protocol
+
+
+    EV_INFO << "MyCarApp: Broadcasting speed update: " << currentSpeed
+            << " m/s from " << speedMsg->getSenderId()<<"IN channel"<<speedMsg->getChannelNumber() << endl;
+
+    // Send the message to the lower layer (network layer) with 0 delay for immediate sending
+    sendDelayedDown(speedMsg,0);
 }
-int MyCarApp::numInitStages() const {
-    return BaseApplLayer::numInitStages(); // or just return 1;
+
+// Removed handleLowerMsg as it was conflicting and likely not needed for a car's receiving logic.
+// If your car app needs to receive specific application messages from lower layers,
+// implement that logic within handleMessage's "lowerLayerIn" branch.
+
+void MyCarApp::finish()
+{
+    BaseApplLayer::finish();
+    // Clean up the self-message if it's still scheduled
+    if (sendSpeedTimer && sendSpeedTimer->isScheduled()) {
+        cancelAndDelete(sendSpeedTimer);
+    }
 }

@@ -20,7 +20,7 @@
 #include "veins/base/modules/BaseApplLayer.h"
 using namespace omnetpp;
 using namespace veins;
-
+/*
 class MyRSUApp : public BaseApplLayer
 {
   protected:
@@ -29,5 +29,18 @@ class MyRSUApp : public BaseApplLayer
     virtual void handleSelfMsg(cMessage* msg) override;
      virtual void handleLowerMsg(cMessage* msg) override;
 };
+*/
+class MyRSUApp : public BaseApplLayer {
+  public:
+    virtual void initialize(int stage) override;
+    virtual void handleMessage(cMessage* msg) override;
+    virtual void handleSelfMsg(cMessage* msg) override;
 
+    virtual void handleLowerMsg(cMessage *msg) override;
+
+    virtual void finish() override;
+
+  protected:
+    // No specific protected members needed for this simple RSU app
+};
 #endif

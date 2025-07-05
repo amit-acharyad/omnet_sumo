@@ -1,0 +1,18 @@
+<obstacles version="1">
+    <obstacle id="b1" type="building">
+        <polygon>
+            <point x="100" y="100"/>
+            <point x="200" y="100"/>
+            <point x="200" y="200"/>
+            <point x="100" y="200"/>
+        </polygon>
+    </obstacle>
+    <obstacle id="b2" type="building">
+        <polygon>
+            <point x="300" y="300"/>
+            <point x="400" y="300"/>
+            <point x="400" y="400"/>
+            <point x="300" y="400"/>
+        </polygon>
+    </obstacle>
+</obstacles>

@@ -2,7 +2,7 @@
 # OMNeT++/OMNEST Makefile for sumoveins
 #
 # This file was generated with the command:
-#  opp_makemake -f --deep -O out -KVEINS_PROJ=/home/amit/veins -DVEINS_IMPORT -I. -I$$\(VEINS_PROJ\)/src -Isrc -L$$\(VEINS_PROJ\)/src -lveins$$\(D\)
+#  opp_makemake -f --deep -O out -KVEINS_PROJ=/home/amit/veins -DVEINS_IMPORT -I. -I$$\(VEINS_PROJ\)/src -I../src -L$$\(VEINS_PROJ\)/src -lveins$$\(D\)
 #
 
 # Name of target to be created (-o option)
@@ -16,7 +16,7 @@ USERIF_LIBS = $(ALL_ENV_LIBS) # that is, $(TKENV_LIBS) $(QTENV_LIBS) $(CMDENV_LI
 #USERIF_LIBS = $(QTENV_LIBS)
 
 # C++ include paths (with -I)
-INCLUDE_PATH = -I. -I$(VEINS_PROJ)/src -Isrc
+INCLUDE_PATH = -I. -I$(VEINS_PROJ)/src -I../src
 
 # Additional object and library files to link with
 EXTRA_OBJS =
@@ -25,16 +25,15 @@ EXTRA_OBJS =
 LIBS = $(LDFLAG_LIBPATH)$(VEINS_PROJ)/src  -lveins$(D)
 
 # Output directory
-PROJECT_OUTPUT_DIR = out
-PROJECTRELATIVE_PATH =
+PROJECT_OUTPUT_DIR = ../out
+PROJECTRELATIVE_PATH = results
 O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 
 # Object files for local .cc, .msg and .sm files
-OBJS = $O/myCarApp.o $O/myRSUApp.o $O/SpeedMessage_m.o
+OBJS =
 
 # Message files
-MSGFILES = \
-    SpeedMessage.msg
+MSGFILES =
 
 # SM files
 SMFILES =
@@ -83,9 +82,6 @@ endif
 #------------------------------------------------------------------------------
 # User-supplied makefile fragment(s)
 # >>>
-# inserted from file 'makefrag':
-MSGC:=$(MSGC) --msg6
-
 # <<<
 #------------------------------------------------------------------------------
 

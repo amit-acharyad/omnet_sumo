@@ -37,7 +37,11 @@ out/gcc-release//myCarApp.o: myCarApp.cc myCarApp.h \
  /home/amit/veins/src/veins/base/utils/EnumBitset.h \
  /home/amit/veins/src/veins/modules/mobility/traci/TraCIRegionOfInterest.h \
  /home/amit/veins/src/veins/modules/mobility/traci/TraCICommandInterface.h \
- /home/amit/veins/src/veins/modules/world/traci/trafficLight/TraCITrafficLightProgram.h
+ /home/amit/veins/src/veins/modules/world/traci/trafficLight/TraCITrafficLightProgram.h \
+ SpeedMessage_m.h \
+ /home/amit/veins/src/veins/modules/messages/BaseFrame1609_4_m.h \
+ /home/amit/veins/src/veins/base/utils/SimpleAddress_m.h \
+ /home/amit/veins/src/veins/common_m.h
 
 myCarApp.h:
 
@@ -120,3 +124,11 @@ myCarApp.h:
 /home/amit/veins/src/veins/modules/mobility/traci/TraCICommandInterface.h:
 
 /home/amit/veins/src/veins/modules/world/traci/trafficLight/TraCITrafficLightProgram.h:
+
+SpeedMessage_m.h:
+
+/home/amit/veins/src/veins/modules/messages/BaseFrame1609_4_m.h:
+
+/home/amit/veins/src/veins/base/utils/SimpleAddress_m.h:
+
+/home/amit/veins/src/veins/common_m.h:
