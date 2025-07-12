@@ -1,15 +1,15 @@
-file 6749 1751699372                                            
+file 5060 1752345221                                            
 version 2
-run Default-0-20250705-12:53:48-40474
+run Default-0-20250713-00:18:13-15177
 attr configname Default
-attr datetime 20250705-12:53:48
+attr datetime 20250713-00:18:13
 attr experiment Default
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvarsf ""
 attr measurement ""
 attr network Circle
-attr processid 40474
+attr processid 15177
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -27,6 +27,7 @@ param *.manager.autoShutdown true
 param *.manager.launchConfig "xmldoc(\"sumoveins.launchd.xml\")"
 param *.manager.configFile "\"sumocircle.sumocfg\""
 param *.manager.trafficLightModuleType "\"org.car2x.veins.nodes.TrafficLight\""
+param *.circle.networkLayer.interfaceTableModule "\"^.interfaceTable\""
 param *.tls[*].mobility.x 0
 param *.tls[*].mobility.y 0
 param *.tls[*].mobility.z 3
@@ -86,9 +87,9 @@ vector 1 Circle.node[0].veinsmobility posy ETV
 vector 2 Circle.node[0].veinsmobility speed ETV
 vector 3 Circle.node[0].veinsmobility acceleration ETV
 vector 4 Circle.node[0].veinsmobility co2emission ETV
-0	3434 695 21 1322 1 28 28 26.969986854144 89.107912893632 1687.4354362908 116235.62101326
-1	4129 695 21 1322 1 28 28 29.844171651137 93.019672724297 1698.1286574137 115831.38969471
-2	4824 672 61 1322 2 28 27 4.2131780557463 11.156202680226 194.12610189717 1499.8055015521
-3	5496 664 103 1322 3 28 26 -4.4994929348421 2.0214641272393 6.9430246244802 146.21133564065
-4	6160 588 103 1322 3 28 26 0.973 7.0086767682607 94.243109475163 454.54008651898
+0	3506 339 21 643 1 14 14 61.136532661622 89.107912893632 1121.7073044093 91231.291153723
+1	3845 338 21 643 1 14 14 29.844171651137 89.689916947821 788.66300775801 50729.876399185
+2	4183 316 61 643 2 14 13 4.2131780557463 9.7488011066039 90.705981614725 676.27453024342
+3	4499 297 103 643 3 14 12 -4.1001540421185 2.0128104378274 5.0563742380544 57.823740143226
+4	4796 263 103 643 3 14 12 0.973 6.1694436985322 42.729521648477 194.15212583873
 

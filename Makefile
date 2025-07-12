@@ -85,6 +85,7 @@ endif
 # >>>
 # inserted from file 'makefrag':
 MSGC:=$(MSGC) --msg6
+LIBS += -lpthread
 
 # <<<
 #------------------------------------------------------------------------------
