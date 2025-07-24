@@ -6,6 +6,12 @@
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
     <!-- Routes -->
     <route id="r_0" edges="E0 E1 E2 E3 E4 E5"/>
+        <route id="r_1" edges="E1 E2 E3 E4 E5"/>
+            <route id="r_2" edges="E2 E3 E4 E5"/>
+    
     <!-- Vehicles, persons and containers (sorted by depart) -->
     <vehicle id="v_0" depart="0.00" route="r_0"/>
+        <vehicle id="v_1" depart="0.00" route="r_1"/>
+        <vehicle id="v_2" depart="0.00" route="r_2"/>
+    
 </routes>

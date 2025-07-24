@@ -1,17 +1,3 @@
-//
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU Lesser General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU Lesser General Public License for more details.
-//
-// You should have received a copy of the GNU Lesser General Public License
-// along with this program.  If not, see http://www.gnu.org/licenses/.
-//
 
 #include "myCarApp.h"
 #include "veins/modules/mobility/traci/TraCIMobility.h"
@@ -78,6 +64,14 @@ void MyCarApp::sendSpeedUpdate()
 
     // Get the current speed
     double currentSpeed = mobility->getSpeed();
+    const char* xStr = getParentModule()->getDisplayString().getTagArg("p", 0);
+    const char* yStr = getParentModule()->getDisplayString().getTagArg("p", 1);
+    Coord pos(atof(xStr), atof(yStr), 0);
+
+    EV_INFO << "OMNeT++ 5.x vehicle position: (" << pos.x << ", " << pos.y << ")" << endl;
+    Coord currentPosition=mobility->getCurrentPosition();
+    EV<<"Position from TRACI X : "<<currentPosition.x<<"Y: "<<currentPosition.y<<"Z: "<<currentPosition.z<<endl;
+
 
     // Create a new SpeedMessage
     SpeedMessage* speedMsg = new SpeedMessage("speedMessage");
@@ -99,7 +93,14 @@ void MyCarApp::sendSpeedUpdate()
 // Removed handleLowerMsg as it was conflicting and likely not needed for a car's receiving logic.
 // If your car app needs to receive specific application messages from lower layers,
 // implement that logic within handleMessage's "lowerLayerIn" branch.
+Coord MyCarApp:: getCurrentPosition(){
+    const char* xStr = getParentModule()->getDisplayString().getTagArg("p", 0);
+    const char* yStr = getParentModule()->getDisplayString().getTagArg("p", 1);
+    Coord pos(atof(xStr), atof(yStr), 0);
 
+    EV_INFO << "OMNeT++ 5.x vehicle position: (" << pos.x << ", " << pos.y << ")" << endl;
+    return pos;
+}
 void MyCarApp::finish()
 {
     BaseApplLayer::finish();

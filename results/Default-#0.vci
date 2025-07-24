@@ -1,23 +1,23 @@
-file 5060 1752345221                                            
+file 12239 1753374423                                           
 version 2
-run Default-0-20250713-00:18:13-15177
+run Default-0-20250724-22:11:54-66830
 attr configname Default
-attr datetime 20250713-00:18:13
+attr datetime 20250724-22:11:54
 attr experiment Default
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvarsf ""
 attr measurement ""
 attr network Circle
-attr processid 15177
+attr processid 66830
 attr repetition 0
 attr replication #0
 attr resultdir results
 attr runnumber 0
 attr seedset 0
 param *.**.appl.logLevel "\"debug\""
-param *.playgroundSizeX 2500m
-param *.playgroundSizeY 2500m
+param *.playgroundSizeX 1000m
+param *.playgroundSizeY 800m
 param *.playgroundSizeZ 50m
 param *.annotations.draw true
 param *.manager.updateInterval 1s
@@ -84,12 +84,32 @@ param *.rsu[*].nic.phy.communicationRange 1000
 
 vector 0 Circle.node[0].veinsmobility posx ETV
 vector 1 Circle.node[0].veinsmobility posy ETV
-vector 2 Circle.node[0].veinsmobility speed ETV
-vector 3 Circle.node[0].veinsmobility acceleration ETV
-vector 4 Circle.node[0].veinsmobility co2emission ETV
-0	3506 339 21 643 1 14 14 61.136532661622 89.107912893632 1121.7073044093 91231.291153723
-1	3845 338 21 643 1 14 14 29.844171651137 89.689916947821 788.66300775801 50729.876399185
-2	4183 316 61 643 2 14 13 4.2131780557463 9.7488011066039 90.705981614725 676.27453024342
-3	4499 297 103 643 3 14 12 -4.1001540421185 2.0128104378274 5.0563742380544 57.823740143226
-4	4796 263 103 643 3 14 12 0.973 6.1694436985322 42.729521648477 194.15212583873
+vector 2 Circle.node[1].veinsmobility posx ETV
+vector 3 Circle.node[1].veinsmobility posy ETV
+vector 4 Circle.node[2].veinsmobility posx ETV
+vector 5 Circle.node[2].veinsmobility posy ETV
+vector 6 Circle.node[0].veinsmobility speed ETV
+vector 7 Circle.node[1].veinsmobility speed ETV
+vector 8 Circle.node[2].veinsmobility speed ETV
+vector 9 Circle.node[0].veinsmobility acceleration ETV
+vector 10 Circle.node[0].veinsmobility co2emission ETV
+vector 11 Circle.node[1].veinsmobility acceleration ETV
+vector 12 Circle.node[1].veinsmobility co2emission ETV
+vector 13 Circle.node[2].veinsmobility acceleration ETV
+vector 14 Circle.node[2].veinsmobility co2emission ETV
+14	4012 366 184 1788 3 18 16 0.973 6.673051790963 59.915595583098 293.74603822857
+13	4378 424 184 1788 3 18 16 -4.4996448693335 2.0331080678329 6.3506652038156 88.866449444722
+8	4802 424 101 1788 2 18 17 4.1606352676198 10.601761766071 116.97054838835 873.95247004629
+5	5226 443 22 1788 1 18 18 32.177198163559 93.32571332015 1258.3504246386 95175.06756729
+4	5669 446 22 1788 1 18 18 27.016085838007 82.637183798843 861.49047964499 47592.581176666
+12	6115 481 184 2208 3 23 21 0.973 6.4773102263163 74.10909007663 346.55515283844
+11	6596 550 184 2208 3 23 21 -4.5 2.0245802215796 5.971127060155 109.11022685088
+7	7146 553 101 2208 2 23 22 4.2005369220469 10.173393695183 151.60946210733 1121.804688842
+3	7699 575 22 2208 1 23 23 33.54517863482 92.916497109851 1565.7526345307 114043.82358667
+2	8274 575 22 2208 1 23 23 27.225745004858 89.100483251232 1330.47950021 90744.659967134
+0	8849 700 22 2459 1 28 28 26.988959304497 89.107930218223 1687.6817847268 116283.26933799
+1	9549 705 22 2459 1 28 28 29.844171651137 92.982594879766 1699.1105278147 115926.94388731
+6	10254 684 101 2459 2 28 27 4.2131780557463 11.121716151227 193.90121117797 1494.9804483967
+9	10938 674 184 2459 3 28 26 -4.4999657717533 2.0128104378274 6.9085380954805 143.19955221822
+10	11612 626 184 2459 3 28 26 0.973 6.9806825227803 93.507701434349 448.09407566355
 

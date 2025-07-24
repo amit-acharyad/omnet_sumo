@@ -12,8 +12,8 @@ void MyRSUApp::initialize(int stage) {
     BaseApplLayer::initialize(stage);
     if (stage == 0) {
         // Start socket thread
-        socket_thread = std::thread(&MyRSUApp::runSocketClient, this);
-        socket_thread.detach();
+//        socket_thread = std::thread(&MyRSUApp::runSocketClient, this);
+//        socket_thread.detach();
     }
 }
 
@@ -66,7 +66,7 @@ void MyRSUApp::handleLowerMsg(cMessage *msg) {
     if (speedMsg) {
         std::stringstream ss;
         ss << speedMsg->getSenderId() << "," << speedMsg->getSpeed();
-        sendDataOverSocket(ss.str());
+//        sendDataOverSocket(ss.str());
     }
     delete msg;
 }
@@ -77,7 +77,7 @@ void MyRSUApp::handleMessage(cMessage *msg) {
        if (speedMsg) {
            std::stringstream ss;
            ss << speedMsg->getSenderId() << "," << speedMsg->getSpeed();
-           sendDataOverSocket(ss.str());
+//           sendDataOverSocket(ss.str());
        }
        delete msg;
 }

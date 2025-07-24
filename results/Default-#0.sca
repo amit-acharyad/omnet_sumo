@@ -1,22 +1,22 @@
 version 2
-run Default-0-20250713-00:18:13-15177
+run Default-0-20250724-22:11:54-66830
 attr configname Default
-attr datetime 20250713-00:18:13
+attr datetime 20250724-22:11:54
 attr experiment Default
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvarsf ""
 attr measurement ""
 attr network Circle
-attr processid 15177
+attr processid 66830
 attr repetition 0
 attr replication #0
 attr resultdir results
 attr runnumber 0
 attr seedset 0
 param *.**.appl.logLevel "\"debug\""
-param *.playgroundSizeX 2500m
-param *.playgroundSizeY 2500m
+param *.playgroundSizeX 1000m
+param *.playgroundSizeY 800m
 param *.playgroundSizeZ 50m
 param *.annotations.draw true
 param *.manager.updateInterval 1s
@@ -81,22 +81,86 @@ param *.node[*0].veinsmobility.accidentDuration 50s
 param *.node[*].nic.phy.communicationRange 1000
 param *.rsu[*].nic.phy.communicationRange 1000
 
+scalar Circle.node[2].nic.phy80211p busyTime 1.3333333333333e-05
+scalar Circle.node[2].nic.mac1609_4 ReceivedUnicastPackets 0
+scalar Circle.node[2].nic.mac1609_4 ReceivedBroadcasts 5
+scalar Circle.node[2].nic.mac1609_4 SentPackets 5
+scalar Circle.node[2].nic.mac1609_4 SentAcknowledgements 0
+scalar Circle.node[2].nic.mac1609_4 RetriesExceeded 0
+scalar Circle.node[2].nic.mac1609_4 SNIRLostPackets 0
+scalar Circle.node[2].nic.mac1609_4 RXTXLostPackets 5
+scalar Circle.node[2].nic.mac1609_4 TotalLostPackets 5
+scalar Circle.node[2].nic.mac1609_4 DroppedPacketsInMac 0
+scalar Circle.node[2].nic.mac1609_4 TooLittleTime 0
+scalar Circle.node[2].nic.mac1609_4 TimesIntoBackoff 5
+scalar Circle.node[2].nic.mac1609_4 SlotsBackoff 10
+scalar Circle.node[2].nic.mac1609_4 NumInternalContention 0
+scalar Circle.node[2].nic.mac1609_4 totalBusyTime 0.000485
+scalar Circle.node[2].nic.mac1609_4 retriesExceeded:count 0
+attr source org_car2x_veins_modules_mac_sigRetriesExceeded
+scalar Circle.node[2].nic.mac1609_4 sentAcks:count 0
+attr source org_car2x_veins_modules_mac_sigSentAck
+scalar Circle.node[2].nic.mac1609_4 sentPackets:count 5
+attr source org_car2x_veins_modules_mac_sigSentPacket
+scalar Circle.node[2].nic.mac1609_4 collisions:count 0
+attr source org_car2x_veins_modules_mac_sigCollision
+scalar Circle.node[2].nic.mac1609_4 channelBusy:timeavg 2.6944444444444e-05
+attr source org_car2x_veins_modules_mac_sigChannelBusy
+scalar Circle.node[2].veinsmobility startTime 1
+scalar Circle.node[2].veinsmobility totalTime 17
+scalar Circle.node[2].veinsmobility stopTime 19
+scalar Circle.node[2].veinsmobility minSpeed 4.1606352676198
+scalar Circle.node[2].veinsmobility maxSpeed 10.601761766071
+scalar Circle.node[2].veinsmobility totalDistance 111.85683481553
+scalar Circle.node[2].veinsmobility totalCO2Emission 59.915595583098
+scalar Circle.node[1].nic.phy80211p busyTime 2.504347826087e-05
+scalar Circle.node[1].nic.mac1609_4 ReceivedUnicastPackets 0
+scalar Circle.node[1].nic.mac1609_4 ReceivedBroadcasts 2
+scalar Circle.node[1].nic.mac1609_4 SentPackets 7
+scalar Circle.node[1].nic.mac1609_4 SentAcknowledgements 0
+scalar Circle.node[1].nic.mac1609_4 RetriesExceeded 0
+scalar Circle.node[1].nic.mac1609_4 SNIRLostPackets 10
+scalar Circle.node[1].nic.mac1609_4 RXTXLostPackets 0
+scalar Circle.node[1].nic.mac1609_4 TotalLostPackets 10
+scalar Circle.node[1].nic.mac1609_4 DroppedPacketsInMac 0
+scalar Circle.node[1].nic.mac1609_4 TooLittleTime 0
+scalar Circle.node[1].nic.mac1609_4 TimesIntoBackoff 7
+scalar Circle.node[1].nic.mac1609_4 SlotsBackoff 17
+scalar Circle.node[1].nic.mac1609_4 NumInternalContention 0
+scalar Circle.node[1].nic.mac1609_4 totalBusyTime 0.000679
+scalar Circle.node[1].nic.mac1609_4 retriesExceeded:count 0
+attr source org_car2x_veins_modules_mac_sigRetriesExceeded
+scalar Circle.node[1].nic.mac1609_4 sentAcks:count 0
+attr source org_car2x_veins_modules_mac_sigSentAck
+scalar Circle.node[1].nic.mac1609_4 sentPackets:count 7
+attr source org_car2x_veins_modules_mac_sigSentPacket
+scalar Circle.node[1].nic.mac1609_4 collisions:count 0
+attr source org_car2x_veins_modules_mac_sigCollision
+scalar Circle.node[1].nic.mac1609_4 channelBusy:timeavg 2.9521739130435e-05
+attr source org_car2x_veins_modules_mac_sigChannelBusy
+scalar Circle.node[1].veinsmobility startTime 1
+scalar Circle.node[1].veinsmobility totalTime 22
+scalar Circle.node[1].veinsmobility stopTime 24
+scalar Circle.node[1].veinsmobility minSpeed 4.2005369220469
+scalar Circle.node[1].veinsmobility maxSpeed 10.173393695183
+scalar Circle.node[1].veinsmobility totalDistance 146.26804201615
+scalar Circle.node[1].veinsmobility totalCO2Emission 74.10909007663
 scalar Circle.manager roiArea 0
-scalar Circle.rsu[0].nic.phy80211p busyTime 2.0571162866926e-05
+scalar Circle.rsu[0].nic.phy80211p busyTime 3.4285714285714e-05
 scalar Circle.rsu[0].nic.mac1609_4 ReceivedUnicastPackets 0
-scalar Circle.rsu[0].nic.mac1609_4 ReceivedBroadcasts 6
+scalar Circle.rsu[0].nic.mac1609_4 ReceivedBroadcasts 14
 scalar Circle.rsu[0].nic.mac1609_4 SentPackets 0
 scalar Circle.rsu[0].nic.mac1609_4 SentAcknowledgements 0
 scalar Circle.rsu[0].nic.mac1609_4 RetriesExceeded 0
-scalar Circle.rsu[0].nic.mac1609_4 SNIRLostPackets 0
+scalar Circle.rsu[0].nic.mac1609_4 SNIRLostPackets 6
 scalar Circle.rsu[0].nic.mac1609_4 RXTXLostPackets 0
-scalar Circle.rsu[0].nic.mac1609_4 TotalLostPackets 0
+scalar Circle.rsu[0].nic.mac1609_4 TotalLostPackets 6
 scalar Circle.rsu[0].nic.mac1609_4 DroppedPacketsInMac 0
 scalar Circle.rsu[0].nic.mac1609_4 TooLittleTime 0
 scalar Circle.rsu[0].nic.mac1609_4 TimesIntoBackoff 0
 scalar Circle.rsu[0].nic.mac1609_4 SlotsBackoff 0
 scalar Circle.rsu[0].nic.mac1609_4 NumInternalContention 0
-scalar Circle.rsu[0].nic.mac1609_4 totalBusyTime 0.000288
+scalar Circle.rsu[0].nic.mac1609_4 totalBusyTime 0.00072
 scalar Circle.rsu[0].nic.mac1609_4 retriesExceeded:count 0
 attr source org_car2x_veins_modules_mac_sigRetriesExceeded
 scalar Circle.rsu[0].nic.mac1609_4 sentAcks:count 0
@@ -105,38 +169,38 @@ scalar Circle.rsu[0].nic.mac1609_4 sentPackets:count 0
 attr source org_car2x_veins_modules_mac_sigSentPacket
 scalar Circle.rsu[0].nic.mac1609_4 collisions:count 0
 attr source org_car2x_veins_modules_mac_sigCollision
-scalar Circle.rsu[0].nic.mac1609_4 channelBusy:timeavg 2.0571162866926e-05
+scalar Circle.rsu[0].nic.mac1609_4 channelBusy:timeavg 2.5714285714286e-05
 attr source org_car2x_veins_modules_mac_sigChannelBusy
-scalar Circle.node[0].nic.phy80211p busyTime 0
+scalar Circle.node[0].nic.phy80211p busyTime 1.2444444444444e-05
 scalar Circle.node[0].nic.mac1609_4 ReceivedUnicastPackets 0
-scalar Circle.node[0].nic.mac1609_4 ReceivedBroadcasts 0
-scalar Circle.node[0].nic.mac1609_4 SentPackets 6
+scalar Circle.node[0].nic.mac1609_4 ReceivedBroadcasts 7
+scalar Circle.node[0].nic.mac1609_4 SentPackets 8
 scalar Circle.node[0].nic.mac1609_4 SentAcknowledgements 0
 scalar Circle.node[0].nic.mac1609_4 RetriesExceeded 0
 scalar Circle.node[0].nic.mac1609_4 SNIRLostPackets 0
-scalar Circle.node[0].nic.mac1609_4 RXTXLostPackets 0
-scalar Circle.node[0].nic.mac1609_4 TotalLostPackets 0
+scalar Circle.node[0].nic.mac1609_4 RXTXLostPackets 5
+scalar Circle.node[0].nic.mac1609_4 TotalLostPackets 5
 scalar Circle.node[0].nic.mac1609_4 DroppedPacketsInMac 0
 scalar Circle.node[0].nic.mac1609_4 TooLittleTime 0
-scalar Circle.node[0].nic.mac1609_4 TimesIntoBackoff 6
-scalar Circle.node[0].nic.mac1609_4 SlotsBackoff 4
+scalar Circle.node[0].nic.mac1609_4 TimesIntoBackoff 8
+scalar Circle.node[0].nic.mac1609_4 SlotsBackoff 9
 scalar Circle.node[0].nic.mac1609_4 NumInternalContention 0
-scalar Circle.node[0].nic.mac1609_4 totalBusyTime 0.000294
+scalar Circle.node[0].nic.mac1609_4 totalBusyTime 0.000728
 scalar Circle.node[0].nic.mac1609_4 retriesExceeded:count 0
 attr source org_car2x_veins_modules_mac_sigRetriesExceeded
 scalar Circle.node[0].nic.mac1609_4 sentAcks:count 0
 attr source org_car2x_veins_modules_mac_sigSentAck
-scalar Circle.node[0].nic.mac1609_4 sentPackets:count 6
+scalar Circle.node[0].nic.mac1609_4 sentPackets:count 8
 attr source org_car2x_veins_modules_mac_sigSentPacket
 scalar Circle.node[0].nic.mac1609_4 collisions:count 0
 attr source org_car2x_veins_modules_mac_sigCollision
-scalar Circle.node[0].nic.mac1609_4 channelBusy:timeavg 2.2615070041481e-05
+scalar Circle.node[0].nic.mac1609_4 channelBusy:timeavg 2.6962962962963e-05
 attr source org_car2x_veins_modules_mac_sigChannelBusy
 scalar Circle.node[0].veinsmobility startTime 1
-scalar Circle.node[0].veinsmobility totalTime 13
-scalar Circle.node[0].veinsmobility stopTime 14.000180829011
+scalar Circle.node[0].veinsmobility totalTime 27
+scalar Circle.node[0].veinsmobility stopTime 28
 scalar Circle.node[0].veinsmobility minSpeed 4.2131780557463
-scalar Circle.node[0].veinsmobility maxSpeed 9.7488011066039
-scalar Circle.node[0].veinsmobility totalDistance 87.874099239393
-scalar Circle.node[0].veinsmobility totalCO2Emission 42.729521648477
+scalar Circle.node[0].veinsmobility maxSpeed 11.121716151227
+scalar Circle.node[0].veinsmobility totalDistance 188.37671356225
+scalar Circle.node[0].veinsmobility totalCO2Emission 93.507701434349
 

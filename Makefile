@@ -30,7 +30,7 @@ PROJECTRELATIVE_PATH =
 O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 
 # Object files for local .cc, .msg and .sm files
-OBJS = $O/myCarApp.o $O/myRSUApp.o $O/SpeedMessage_m.o
+OBJS = $O/myCarApp.o $O/myRSUApp.o $O/Orchestrator.o $O/SpeedMessage_m.o
 
 # Message files
 MSGFILES = \
@@ -86,6 +86,7 @@ endif
 # inserted from file 'makefrag':
 MSGC:=$(MSGC) --msg6
 LIBS += -lpthread
+LIBS += -ljsoncpp
 
 # <<<
 #------------------------------------------------------------------------------
