@@ -69,8 +69,8 @@ void MyCarApp::sendSpeedUpdate()
     Coord pos(atof(xStr), atof(yStr), 0);
 
     EV_INFO << "OMNeT++ 5.x vehicle position: (" << pos.x << ", " << pos.y << ")" << endl;
-    Coord currentPosition=mobility->getCurrentPosition();
-    EV<<"Position from TRACI X : "<<currentPosition.x<<"Y: "<<currentPosition.y<<"Z: "<<currentPosition.z<<endl;
+//    Coord currentPosition=mobility->getCurrentPosition();
+//    EV<<"Position from TRACI X : "<<currentPosition.x<<"Y: "<<currentPosition.y<<"Z: "<<currentPosition.z<<endl;
 
 
     // Create a new SpeedMessage
